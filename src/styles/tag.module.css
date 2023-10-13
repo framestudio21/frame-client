@@ -1,0 +1,195 @@
+.mainbody {
+  width: calc(100vw - 60px);
+  height: 100vh;
+  margin-left: 60px;
+  background: #fff;
+  position: relative;
+  font-family: inherit;
+  padding: 25px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* project close button styling */
+.closebtn {
+  position: absolute;
+  top: 25px;
+  left: 30px;
+  border: none;
+  background: none;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #000;
+}
+.closebtn .leftarrow {
+  margin-right: 10px;
+}
+
+/* products body styles design */
+.product {
+  width: 80%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 20px;
+
+  & .leftside{
+    width:30%;
+    height: 200px;
+    margin-right: 20px;
+    position: relative;
+    & .image{
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  & .rightside{
+    width: 70%;
+
+    & .title {
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 25px;
+      letter-spacing: 1px;
+    }
+    & .title:hover {
+      color: #626262;
+    }
+    & .subtitle {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: #797979;
+    }
+    & .subtitle a:hover {
+      color: #000;
+    }
+    & .subtitle p {
+      margin-right: 10px;
+    }
+    & .subtitle span {
+      margin: 0 10px;
+    }
+    & .createtype{
+      width: 100%;
+      display: flex;
+      margin: 0 0 10px 0;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #a6a6a6;
+      align-items: center;
+    }
+    & .createtype p{
+      margin: 0 5px 0 0;
+    }
+    & .createtype a{
+      margin: 0 5px 0 0;
+    }
+    & .createtype a:hover{
+      color: #000;
+    }
+    & .text {
+      text-align: justify;
+      font-size: 12px;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 6;
+      -webkit-box-orient: vertical;
+      -moz-line-clamp: 6;
+      -moz-box-orient: vertical;
+    }
+  }
+}
+
+.product::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #000;
+}
+
+
+ .leftside::after {
+  content: " ";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  height: 0;
+}
+ .leftside:hover::after {
+  height: 100%;
+  transition: all 0.5s ease;
+}
+ .leftside .text {
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -10%);
+  display: none;
+}
+ .leftside:hover .text {
+  display: block;
+  text-align: center;
+  z-index: 9;
+  font-size: 16px;
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* screen wise style design */
+@media screen and (max-width: 600px) {
+  .mainbody {
+    width: 100%;
+    margin: 70px 0 0 0;
+    padding: 0;
+  }
+  .closebtn {
+    display: none;
+  }
+  .product{
+    width: 100%;
+    flex-direction: column;
+
+    & .leftside{
+      width: 100%;
+      height: 200px;
+      margin: 0;
+    }
+    & .rightside{
+      width: 100%;
+
+      & .createtype{
+        flex-wrap: wrap;
+      }
+      & .text {
+        text-align: justify;
+        font-size: 12px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        -moz-line-clamp: 2;
+        -moz-box-orient: vertical;
+      }
+    }
+  }
+}

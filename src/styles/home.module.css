@@ -1,0 +1,219 @@
+
+.mainbody{
+    width: calc(100vw - 60px);
+    margin-left: 60px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.image{
+    width: 100%;
+    height: 100%;
+}
+.imagebody{
+    height: 280px;
+    position: relative;
+    cursor: pointer;
+}
+
+.imagebody::after {
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    height: 0;
+  }
+ .imagebody:hover::after {
+    height: 100%;
+    transition: all 0.5s ease;
+  }
+  .imagebody .text {
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -10%);
+    display: none;
+  }
+ .imagebody:hover .text {
+    display: block;
+    z-index: 9;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+  @media screen and (max-width: 1080px){
+    .mainbody{
+       display: grid;
+       grid-template-columns: repeat(3, 1fr);
+       width: calc(100% - 60px);
+       margin: 0 0 0 60px;
+       height: 100%;
+    }
+  }
+  @media screen and (max-width: 800px){
+    .mainbody{
+       display: grid;
+       grid-template-columns: repeat(2, 1fr);
+       width: calc(100% - 60px);
+       margin: 0 0 0 60px;
+    }
+  }
+  @media screen and (max-width: 600px){
+    .mainbody{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 60px 0 0 0;
+    }
+  }
+
+
+
+
+/* photography & digitalart styles design section */
+.masonrymainbody{
+  width: calc(100% - 60px);
+  margin-left: 60px;
+}
+.gallerymainbody{
+  width: calc(100% - 60px);
+  margin-left: 60px;
+  padding: 20px;
+}
+.imagecontainer{
+  object-fit: scale-down;
+}
+/* image display div design */
+.imagedisplaydiv{
+  width: calc(100vw - 60px);
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  
+  & .image{
+    width: auto;
+    max-width: 90%;
+    min-width: 20%;
+    height: auto;
+    max-height: 90%;
+    min-height: 20%;
+  }
+
+  & .imageauthor{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: 2px;
+  }
+
+  & .closebtn{
+    position: fixed;
+    top: 25px;
+    left: 100px;
+    border: none;
+    background: none;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #fff;
+  }
+  & .closebtn i{
+    margin-right: 10px;
+  }
+}
+/* closebtn desing */
+/* project close button styling */
+.closebtn{
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  border: none;
+  background: none;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.closebtn .leftarrow{
+  margin-right: 10px;
+}
+
+/* masorny image design */
+.photographyimage{
+  display: block;
+  cursor: pointer;
+  max-width: 370px;
+  max-height: 500px;
+  min-width: 370px;
+  min-height: 200px;
+}
+.digitalartimage{
+  display: block;
+  cursor: pointer;
+  width: 100%;
+  /* height: 500px; */
+  max-height: 460px;
+  min-height: 100px;
+}
+.aiartimage{
+  display: block;
+  cursor: pointer;
+  width: 369px;
+  height: 350px;
+}
+
+@media screen and (max-width: 600px) {
+  .masonrymainbody{
+    height: 100vh;
+    margin: 70px 0 0 0;
+    padding: 0;
+    width: 100%;
+  }
+  .digitalartimage{
+    min-width: 100%;
+    max-width: 100%;
+  }
+  .photographyimage{
+    min-width: 100%;
+    max-width: 100%;
+  }
+  .aiartimage{
+    min-width: 100%;
+    max-width: 100%;
+  }
+  .imagedisplaydiv{
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    & .image{
+      max-width: 95%;
+      max-height: 90%;
+    }
+    & .closebtn{
+      display: none;
+    }
+  }
+
+}

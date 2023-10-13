@@ -1,0 +1,221 @@
+.mainbody {
+  width: calc(100% - 60px);
+  height: 100vh;
+  /* background: url("../image/wallpaper.svg"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-left: 60px;
+  display: flex;
+  position: relative;
+  & .closebtn {
+    position: absolute;
+    top: 25px;
+    left: 30px;
+    border: none;
+    background: none;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    & .leftarrow {
+      margin-right: 10px;
+    }
+  }
+
+  & .contactbody {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    & .contactform {
+      width: 60%;
+      padding: 20px;
+      /* background: rgba(255, 255, 255, 0.43); */
+      
+/* background-color: #2d3436; */
+background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%);
+
+      border-radius: 12px;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      z-index: 9;
+    }
+  }
+  /* & .contactbody::before{
+    content: " ";
+    background-color: var(--green-color);
+    border-radius: 50%;
+    top: 30px;
+    left: 210px;
+    position: absolute;
+    height: 250px;
+    width: 250px;
+  }
+  & .contactbody::after{
+    content: " ";
+    background-color: var(--redorange-color);
+    border-radius: 50%;
+    bottom: 30px;
+    right: 210px;
+    position: absolute;
+    height: 250px;
+    width: 250px;
+  } */
+}
+
+.contactform {
+  & .title {
+    font-size: 60px;
+    letter-spacing: 5px;
+  }
+  & .title p {
+    font-size: 25px;
+    margin-top: -5px;
+    letter-spacing: 3px;
+  }
+}
+
+.form .inputfield {
+  height: 50px;
+  margin: 20px 0 10px 0;
+  font-size: 25px;
+}
+
+.formfield {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #000;
+  outline: 0;
+  font-size: 1.3rem;
+  padding: 5px 0 3px 0;
+  /* background: transparent; */
+  background: none;
+  transition: border-color 0.2s;
+  position: relative;
+  text-transform: lowercase;
+}
+.formfield::placeholder {
+  color: transparent;
+}
+.formfield:placeholder-shown ~ .formlabel {
+  font-size: 1.2rem;
+  cursor: text;
+}
+.formlabel {
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: gray;
+  text-transform: lowercase;
+}
+
+.submit,
+.reset {
+  padding: 10px 0;
+  width: 200px;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 20px;
+  border: none;
+  background-color: var(--green-color);
+  margin-top: 30px;
+  border-radius: 40px;
+}
+.formbutton {
+  display: flex;
+  justify-content: space-between;
+}
+.submit:hover {
+  border-radius: 50px;
+}
+.reset:hover {
+  border-radius: 50px;
+}
+.reset {
+  background: var(--redorange-color);
+  color: #fff;
+}
+
+@media screen and (max-width: 800px) {
+  .mainbody {
+    margin-left: 60px;
+    padding: 0;
+
+    & .top {
+      width: 100%;
+      height: 80px;
+      padding: 0;
+      /* margin-bottom: 20px; */
+
+      & .closebtn {
+        top: 30px;
+        left: 30px;
+      }
+    }
+
+    & .contactbody {
+      width: 100%;
+      margin: 20px 0 30px 0;
+
+      & .contactform {
+        width: 100%;
+        padding: 0 30px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .mainbody {
+    width: 100%;
+    height: calc(100vh - 60px);
+    padding: 0 25px;
+    margin-left: 0;
+    margin-top: 60px;
+
+    & .closebtn {
+      display: none;
+    }
+
+    & .contactbody {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      position: relative;
+
+      & .popupbox {
+        position: absolute;
+        top: 100px;
+        width: 100%;
+        text-align: center;
+      }
+
+      & .contactform {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+
+        & .title {
+          font-size: 50px;
+        }
+        & .title p {
+          font-size: 20px;
+        }
+      }
+    }
+    & .formbutton {
+      margin-top: 20px;
+      & .submit {
+        margin-right: 10px;
+      }
+    }
+  }
+}

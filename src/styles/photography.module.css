@@ -1,0 +1,164 @@
+.photographymainbody {
+  width: calc(100vw - 60px);
+  margin-left: 60px;
+
+  /* main image body  */
+  .imagebody {
+    display: block;
+    cursor: pointer;
+    width: 100%;
+    min-height: 100px;
+    max-height: 500px;
+    position: relative;
+
+    .image {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .imagebody::after{
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    height: 0;
+  }
+  .imagebody:hover::after {
+    height: 100%;
+    transition: all 0.5s ease;
+  }
+  .imagebody .hovertext {
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    display: none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+  }
+ .imagebody:hover .hovertext {
+    display: block;
+    z-index: 9;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+  }
+
+  /* image display div design */
+.imagedisplaydiv {
+  width: calc(100vw - 60px);
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 999;
+
+  .image {
+    width: auto;
+    max-width: 90%;
+    min-width: 20%;
+    height: auto;
+    max-height: 90%;
+    min-height: 20%;
+  }
+
+  .imageauthor {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: 2px;
+  }
+
+  .closebtn {
+    position: fixed;
+    top: 25px;
+    left: 100px;
+    border: none;
+    background: none;
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #fff;
+    padding: 8px 25px;
+    border-radius: 30px;
+    /* display: flex; */
+    /* gap: 10px; */
+    /* align-items: center; */
+  }
+  .closebtn:hover{
+    background-color: var(--white-color);
+    color: var(--black-color);
+  }
+  .closebtn:active{
+    background-color: var(--green-color);
+    color: var(--black-color);
+  }
+}
+}
+
+
+@media screen and (min-width: 1200px) {
+  .photographymainbody {
+    width: calc(100vw - 60px);
+    margin-left: 60px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .photographymainbody {
+    width: calc(100vw - 60px);
+    margin-left: 60px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .photographymainbody {
+    width: calc(100vw - 60px);
+    margin-left: 60px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .photographymainbody {
+    width: calc(100vw - 60px);
+    margin-left: 60px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .photographymainbody {
+    width: 100%;
+    height: 100%;
+    margin-top: 60px;
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .photographymainbody {
+    width: 100%;
+    height: 100%;
+    margin-left: 0;
+    margin-top: 60px;
+  }
+}
