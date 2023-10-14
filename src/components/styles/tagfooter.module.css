@@ -1,0 +1,70 @@
+.footerbody {
+  position: fixed;
+  bottom: 0;
+  left: 60px;
+  width: calc(100vw - 60px);
+  height: 60px;
+  z-index: 999;
+  color: #000000;
+  background-color: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+
+  & .footertags {
+    display: flex;
+    gap: 20px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 500;
+    font-size: 18px;
+
+    & .tagitem {
+      position: relative;
+    }
+    & .tagitem:hover::after {
+      content: "";
+      height: 1px;
+      background: #000000;
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      border-radius: 5px;
+      animation: navitemanimation 2s ease forwards;
+      width: 100%;
+      @keyframes navitemanimation {
+        100% {
+          width: 100%;
+        }
+      }
+    }
+  }
+  & .closebtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    border: none;
+    background: none;
+    outline: none;
+    color: #000000;
+  }
+}
+.footerbody:hover {
+  /* color: var(--yellow-color); */
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.65);
+
+  & .tagitem:hover::after {
+    /* background: var(--yellow-color); */
+    background: #fff;
+  }
+
+  & .closebtn{
+    color: #fff;
+  }
+}

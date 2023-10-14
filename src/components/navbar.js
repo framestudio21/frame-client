@@ -57,10 +57,7 @@ const Navbar = () => {
   });
 
   // auto year update
-  $(document).ready(function () {
-    var year = new Date().getFullYear();
-    $("#year").text(year);
-  });
+  const year = new Date().getFullYear();
 
   return (
     <>
@@ -203,8 +200,7 @@ const Navbar = () => {
                   </Link>
                 </div>
                 <div className={styles.bottomsection}>
-                  @ all rights reserved by frame studio.{" "}
-                  <span className={styles.year} id="year"></span>
+                  @ all rights reserved by frame studio. {year}
                 </div>
               </div>
             </div>

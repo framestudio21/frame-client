@@ -23,6 +23,7 @@ import styles from "../../styles/id.module.css";
 import Navbar from "../../components/navbar";
 import Popup from "../../components/popup";
 import Orderbox from "../../components/orderbox"
+import Footer from "../../components/footer"
 
 export default dynamic(() => Promise.resolve(Id), { ssr: false });
 function Id() {
@@ -406,6 +407,8 @@ function Id() {
           })}
         </div>
       </div>
+      <Footer/>
+
     </>
   );
 }

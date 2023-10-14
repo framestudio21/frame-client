@@ -1,5 +1,5 @@
 import Navbar from "../../components/navbar"
-import Blogfooter from "./component/blogfooter"
+import Blogfooter from "../../components/footer"
 
 import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";

@@ -96,10 +96,10 @@
   
           .middle1{
             font-weight: 500;
-            line-height: 22px;
+            line-height: 18px;
             letter-spacing: 3px;
             text-transform: uppercase;
-            font-size: 18px;
+            font-size: 16px;
   
             .name{
               font-weight: 900;
@@ -107,7 +107,7 @@
           }
   
           .middle2{
-            font-weight: 600;
+            font-weight: 500;
             /* line-height: 20px; */
             letter-spacing: 3px;
             text-transform: lowercase;
@@ -144,7 +144,7 @@
         }
   
         .bottomsection{
-          font-weight: 900;
+          font-weight: 500;
           letter-spacing: 3px;
           font-size: 10px;
           text-transform: uppercase;
@@ -194,7 +194,7 @@
         .bottomsection{
           text-transform: uppercase;
           letter-spacing: 4px;
-          font-weight: 900;
+          font-weight: 500;
           font-size: 10px;
         }
   

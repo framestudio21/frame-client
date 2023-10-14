@@ -10,7 +10,7 @@ import styles from "../styles/home.module.css";
 
 import Navbar from "../components/navbar";
 import Feedbackpopup from "../components/feedbackpopup";
-import Footer from "../components/footer";
+import Footer from "../components/tagfooter";
 import Preloader from "../components/preloader";
 import Orderconfirm from "../components/orderconfirmpop";
 
