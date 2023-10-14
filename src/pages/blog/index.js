@@ -1,4 +1,5 @@
-import Navbar from "../components/navbar";
+import Navbar from "../../components/navbar"
+import Blogfooter from "./component/blogfooter"
 
 import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
@@ -6,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 
-import styles from "../styles/blog.module.css";
+import styles from "./style/bloghome.module.css"
 
 import { AiFillHeart, AiOutlineShareAlt } from "react-icons/ai";
 import { BsFacebook, BsInstagram, BsGlobe, BsTwitter } from "react-icons/bs";
@@ -34,8 +35,10 @@ useEffect (() => {
       </Head>
       <Navbar />
       <div className={styles.blogmainbody}>
+
+
         {/* blog card design */}
-        <div className={styles.blogcardbody}>
+        {/* <div className={styles.blogcardbody}>
           <div className={styles.topsection}>
             <Image
               src="https://images.pexels.com/photos/5185446/pexels-photo-5185446.jpeg"
@@ -62,14 +65,17 @@ useEffect (() => {
           </div>
           <div className={styles.bottomsection}>
             <div className={styles.socialicon}>
-              <button><BsFacebook/></button>
-              <button><BsInstagram/></button>
-              <button><BsTwitter/></button>
-              <button><BsGlobe/></button>
+              <Link href="#"><button className={styles.iconbtn}><BsFacebook/></button></Link>
+              <Link href="#"><button className={styles.iconbtn}><BsInstagram/></button></Link>
+              <Link href="#"><button className={styles.iconbtn}><BsTwitter/></button></Link>
+              <Link href="https://framestudio.in/about"><button className={styles.iconbtn}><BsGlobe/></button></Link>
             </div>
-            <div className={styles.readmore}>read more</div>
+            <Link href="#"><div className={styles.readmore}>read more</div></Link>
           </div>
-        </div>
+        </div> */}
+
+        {/* blog footer */}
+        <Blogfooter/>
       </div>
     </>
   );
