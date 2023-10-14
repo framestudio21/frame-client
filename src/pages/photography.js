@@ -8,7 +8,14 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import styles from "../styles/photography.module.css";
 import Navbar from "../components/navbar";
 
-import { BsArrowBarLeft } from "react-icons/bs";
+import {
+  BsArrowBarLeft,
+  BsArrowLeftCircle,
+  BsArrowRightCircle,
+} from "react-icons/bs";
+import {
+  AiOutlineCloseCircle
+} from "react-icons/ai";
 
 export default dynamic(() => Promise.resolve(Photography), { ssr: false });
 
@@ -42,13 +49,31 @@ const Photography = () => {
       </Head>
       <Navbar />
       <div className={styles.photographymainbody}>
-
-      {data.thumbnail && (
+        {data.thumbnail && (
           <div className={styles.imagedisplaydiv} onClick={close}>
-            <button name="close" onClick={close} className={styles.closebtn}>
-              {/* <BsArrowBarLeft className={styles.leftarrow} />  */}
-              close
+
+            <div className={styles.leftside}>
+            <button name="previous" className={styles.previousbtn}>
+              <BsArrowLeftCircle />
             </button>
+            </div>
+
+            {data.name && (
+              <div className={styles.imageauthor}>
+                name : <br /> {data.name}
+                <br/>
+                <br/>
+                {data.author && (
+                  <>
+                  author : 
+                  <br /> 
+                  pc by : {data.author}
+                  <br />
+                  edited by : {data.author}
+                  </>
+                )}
+              </div>
+            )}
 
             <Image
               src={data.thumbnail}
@@ -58,11 +83,14 @@ const Photography = () => {
               alt={data.name}
             />
 
-            {data.name && (
-              <p className={styles.imageauthor}>
-                author : <br /> {data.author}
-              </p>
-            )}
+            <div className={styles.rightside}>
+            <button name="close" onClick={close} className={styles.closebtn}>
+              <AiOutlineCloseCircle />
+            </button> 
+            <button name="previous" className={styles.previousbtn}>
+              <BsArrowRightCircle />
+            </button>
+            </div>
           </div>
         )}
 
@@ -73,26 +101,29 @@ const Photography = () => {
             {imgs.map((item) => {
               return (
                 <>
-                    {item.thumbnail && (
-                      <div className={styles.imagebody}>
-                        <Image
-                          key={item._id}
-                          src={item.thumbnail}
-                          className={styles.image}
-                          alt={item.name}
-                          width={0}
-                          height={item.height}
-                          onClick={() => viewImage(item)}
-                          // loading="lazy"
-                          optimized
-                          // priority
-                        />
-                        <button className={styles.hovertext} onClick={() => viewImage(item)}>
-                        <BsArrowRightCircleFill/>
+                  {item.thumbnail && (
+                    <div className={styles.imagebody}>
+                      <Image
+                        key={item._id}
+                        src={item.thumbnail}
+                        className={styles.image}
+                        alt={item.name}
+                        width={0}
+                        height={item.height}
+                        onClick={() => viewImage(item)}
+                        // loading="lazy"
+                        optimized
+                        // priority
+                      />
+                      <button
+                        className={styles.hovertext}
+                        onClick={() => viewImage(item)}
+                      >
+                        <BsArrowRightCircleFill />
                         <p>{item.name}</p>
-                        </button>
-                      </div>
-                    )}
+                      </button>
+                    </div>
+                  )}
                 </>
               );
             })}

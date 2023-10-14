@@ -62,10 +62,80 @@
   background-color: rgba(0, 0, 0, 0.9);
   position: fixed;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   overflow: hidden;
   z-index: 999;
+  /* padding: 0 40px; */
+
+  .leftside, .rightside{
+    width: 80px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .rightside > button {
+    border: none;
+    outline: none;
+    background: none;
+    color: var(--white-color);
+    padding: 20px;
+    font-size: 30px;
+  }
+  .leftside > button {
+    border: none;
+    outline: none;
+    background: none;
+    color: var(--white-color);
+    padding: 20px;
+    font-size: 30px;
+  }
+  .leftside:hover{
+    background: rgba(53, 53, 53, 0.9);
+  }
+  .rightside:hover{
+    background: rgba(53, 53, 53, 0.9);
+  }
+  .leftside:active{
+    background: var(--charcoal-color);
+  }
+  .rightside:active{
+    background: var(--charcoal-color);
+  }
+  
+  .rightside{
+    .closebtn{
+      position: fixed;
+      top: 30px;
+      right: 10px;
+      padding: 10px;
+      font-size: 35px;
+    }
+  }
+
+
+  .rightside > button :hover{
+    background: var(--white-color);
+    border-radius: 20px;
+    color: var(--black-color);
+  }
+  .rightside > button :active{
+    background: var(--green-color);
+    border-radius: 20px;
+    color: var(--black-color);
+  }
+  .leftside > button :hover{
+    background: var(--white-color);
+    border-radius: 20px;
+    color: var(--black-color);
+  }
+  .leftside > button :active{
+    background: var(--green-color);
+    border-radius: 20px;
+    color: var(--black-color);
+  }
+
 
   .image {
     width: auto;
@@ -73,45 +143,20 @@
     min-width: 20%;
     height: auto;
     max-height: 90%;
+    position: relative;
     min-height: 20%;
   }
 
   .imageauthor {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    font-size: 20px;
+    position: absolute;
+    left: 0;
+    bottom: 240px;
+    font-size: 12px;
     text-transform: uppercase;
-    font-weight: 900;
+    font-weight: 600;
     color: #fff;
     letter-spacing: 2px;
-  }
-
-  .closebtn {
-    position: fixed;
-    top: 25px;
-    left: 100px;
-    border: none;
-    background: none;
-    font-weight: 900;
-    font-size: 20px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    cursor: pointer;
-    color: #fff;
-    padding: 8px 25px;
-    border-radius: 30px;
-    /* display: flex; */
-    /* gap: 10px; */
-    /* align-items: center; */
-  }
-  .closebtn:hover{
-    background-color: var(--white-color);
-    color: var(--black-color);
-  }
-  .closebtn:active{
-    background-color: var(--green-color);
-    color: var(--black-color);
+    transform: rotate(-90deg);
   }
 }
 }
