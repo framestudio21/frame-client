@@ -15,15 +15,16 @@ import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
-import { FaRegCopy, FaTwitterSquare, FaGithub } from "react-icons/fa";
+import { FaTwitterSquare, FaGithub } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 import { AiFillFacebook } from "react-icons/ai";
 
 import styles from "../../styles/id.module.css";
 import Navbar from "../../components/navbar";
-import Popup from "../../components/popup";
 import Orderbox from "../../components/orderbox"
 import Footer from "../../components/footer"
+import BackBtn from "../../components/backbtn"
+import CopyBtn from "../../components/copybtn"
 
 export default dynamic(() => Promise.resolve(Id), { ssr: false });
 function Id() {
@@ -31,10 +32,6 @@ function Id() {
   const { path, id } = router.query;
   const [data, setData] = useState([]);
   const [imgs, setImgs] = useState([]);
-
-  // copy image reference data
-  const [pop, setPop] = useState(null);
-  setTimeout(() => setPop(null), 3000);
 
   // image view component
   const [imgdata, setImgData] = useState({});
@@ -205,24 +202,8 @@ function Id() {
                 const date = new Date(item.createdate).toDateString()
             return (
               <>
-                <button
-                  onClick={() => router.back()}
-                  className={styles.closebtn}
-                >
-                  <BsArrowBarLeft className={styles.leftarrow} />
-                  Back
-                </button>
-                <button
-                  className={styles.copybtn}
-                  onClick={() => {
-                    navigator.clipboard.writeText(router.asPath);
-                    setPop("Copied to clipboard");
-                  }}
-                >
-                  copy image refarence
-                  <FaRegCopy className={styles.rightcopy} />
-                </button>
-                <Popup text={pop} />
+                <BackBtn/>
+                <CopyBtn/>
                 <div style={{ textAlign: "center" }}>
                   {item.name && <div className={styles.title}>{item.name}</div>}
                   {item.author && (
@@ -344,6 +325,10 @@ function Id() {
                     />
                   )}
                 </div>
+
+                  {/* new order box */}
+                  <Orderbox/>
+
                 {/* project card carousal deisng */}
                 <div className={styles.projectcardcarousaltitle}>
                   Related Works
@@ -392,9 +377,7 @@ function Id() {
                   </Slider>
                 </div>
 
-                    {/* new order box */}
-                    <Orderbox/>
-
+                  
                 {/* order box design */}
                 <div className={styles.orderbox}>
                   <p>to make this type of design :</p>

@@ -32,14 +32,14 @@
         font-size: 25px;
       }
     }
-    .sidenavbtn:hover{
+    /* .sidenavbtn:hover{
       background: var(--white-color);
       color: var(--black-color);
-    }
-    .sidenavbtn:active{
+    } */
+    /* .sidenavbtn:active{
       background: var(--green-color);
       color: var(--black-color);
-    }
+    } */
 
     .mainlogo {
       /* position: absolute; */

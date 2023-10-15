@@ -6,8 +6,8 @@
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border-radius: 12px;
-  position: fixed;
-  bottom: 100px;
+  position: absolute;
+  bottom: 500px;
   right: 30px;
   z-index: 999;
   padding: 20px;

@@ -15,15 +15,6 @@ import {
 } from "react-icons/bi";
 import { FaPinterestP } from "react-icons/fa";
 import { BsGlobe, BsYoutube, BsDribbble, BsTwitter } from "react-icons/bs";
-import { AiFillCloseCircle } from "react-icons/ai";
-
-import { MdDesignServices, MdAddAPhoto, MdContacts } from "react-icons/md";
-import { CgWebsite } from "react-icons/cg";
-import { SiAdobeindesign } from "react-icons/si";
-
-import framestudiologo from "../image/frame-studio-2.svg";
-import framelogo from "../image/frame-logo.svg";
-import roundlogo from "../image/roundlogoblack.svg";
 
 import spaceframelogowhite from "../image/spacelogowhite.svg";
 import spaceframelogoblack from "../image/spacelogoblack.svg";
@@ -31,30 +22,12 @@ import spaceframelogoblack from "../image/spacelogoblack.svg";
 export default dynamic(() => Promise.resolve(Navbar), { ssr: false });
 
 const Navbar = () => {
-  // const [navbody, setNavBody] = useState("hideNav");
 
-  // const click = () => {
-  //   if (navbody == "hideNav") setNavBody("showNav");
-  //   else setNavBody("hideNav");
-  // };
-
-  $(document).ready(function () {
-    // Hide div by setting display to none
-    $("#closebtn").click(function () {
-      $("#navbody").hide("slow");
-    });
-
-    // Show div by removing inline display none style rule
-    $("#sidenavbtn").click(function () {
-      $("#navbody").show("slow");
-    });
-
-    // Toggle div display
-    // $("#sidenavbtn").click(function () {
-    //   $("#navbody").toggle("slow");
-    // });
-
-  });
+  // toggle button 
+const [isShown, SetIsShown] = useState(false);
+    const handleClick = () => {
+      SetIsShown(!isShown)
+    }
 
   // auto year update
   const year = new Date().getFullYear();
@@ -66,8 +39,8 @@ const Navbar = () => {
           <div className={styles.sidenav}>
             <button
               className={styles.sidenavbtn}
-              // onClick={click}
-              id="sidenavbtn"
+              onClick={handleClick}
+              // id="sidenavbtn"
             >
               <AiOutlineMenu className={styles.sidenavbtnicon} />
             </button>
@@ -88,7 +61,8 @@ const Navbar = () => {
           <div
             className={styles.navbody}
             // id={navbody}
-            id="navbody"
+            // id="navbody"
+            style={{ display: isShown ? 'block' : 'none'}} 
           >
             <div className={styles.navlist}>
               <div className={styles.leftside}>
@@ -157,9 +131,8 @@ const Navbar = () => {
               </div>
               <div className={styles.rightside}>
                 <div className={styles.topsection}>
-                  <button className={styles.closebtn} id="closebtn">
+                  <button className={styles.closebtn} onClick={handleClick}>
                     close
-                    {/* <AiFillCloseCircle className={styles.icon} /> */}
                   </button>
                 </div>
                 <div className={styles.middlesection}>
@@ -210,6 +183,8 @@ const Navbar = () => {
     </>
   );
 };
+
+
 
 {
   /* <div>

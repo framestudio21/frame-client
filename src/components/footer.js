@@ -32,6 +32,7 @@ const Blogfooter = () => {
       setVisible(false)
     }
   }
+  // scroll to top button
   const scrollToTop = () => {
     window.scrollTo ({
       top: 0,
@@ -132,9 +133,6 @@ window.addEventListener('scroll', toggleVisible)
                 <Link href="#">
                   <div className={styles.menu}>photography</div>
                 </Link>
-                <Link href="#">
-                  <div className={styles.menu}>blog</div>
-                </Link>
               </div>
             </div>
             <div className={styles.informationsection}>
@@ -144,11 +142,14 @@ window.addEventListener('scroll', toggleVisible)
                   <div className={styles.information}>about us</div>
                 </Link>
                 <Link href="#">
+                  <div className={styles.information}>blog</div>
+                </Link>
+                {/* <Link href="#">
                   <div className={styles.information}>services</div>
-                </Link>
-                <Link href="#">
+                </Link> */}
+                {/* <Link href="#">
                   <div className={styles.information}>pricing</div>
-                </Link>
+                </Link> */}
                 <Link href="#">
                   <div className={styles.information}>contact</div>
                 </Link>
@@ -161,7 +162,9 @@ window.addEventListener('scroll', toggleVisible)
         </div>
         <div className={styles.blogfooterbottomsection}>
             <div className={styles.leftside}>powered by frame studio</div>
-            <div className={styles.centerside} onClick={scrollToTop}><BiUpArrow/><div className={styles.text}>go on top</div></div>
+            <div className={styles.centerside} onClick={scrollToTop} 
+            // style={{display: visible ? 'inline' : 'none'}}
+            ><BiUpArrow/><div className={styles.text}>go on top</div></div>
             <div className={styles.rightside}>@ all right reserved by frame studio, {year}</div>
         </div>
       </div>

@@ -12,26 +12,6 @@
   justify-content: flex-start;
 }
 
-/* project close button styling */
-.closebtn {
-  position: absolute;
-  top: 25px;
-  left: 30px;
-  border: none;
-  background: none;
-  font-weight: 600;
-  font-size: 20px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  color: #000;
-}
-.closebtn .leftarrow {
-  margin-right: 10px;
-}
-
 /* products body styles design */
 .product {
   width: 80%;
