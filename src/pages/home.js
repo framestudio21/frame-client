@@ -13,6 +13,7 @@ import Feedbackpopup from "../components/feedbackpopup";
 import Footer from "../components/tagfooter";
 import Preloader from "../components/preloader";
 import Orderconfirm from "../components/orderconfirmpop";
+import TaptoTopbtn from "../components/taptotopbtn"
 
 export default dynamic(() => Promise.resolve(Home), { ssr: false });
 const Home = () => {
@@ -79,6 +80,7 @@ const Home = () => {
             </div>
           );
         })}
+        <TaptoTopbtn/>
       </div>
     </>
   );

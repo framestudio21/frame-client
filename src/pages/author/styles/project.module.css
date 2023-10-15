@@ -5,65 +5,33 @@
     background: #000;
     display: flex;
     gap: 10px;
-    /* padding: 60px 60px 20px 60px; */
-    /* display: flex;
-    flex-direction: column;
-    gap: 20px; */
 
-    /* close button */
-    .closebtn{
-        border: 2px solid transparent;
-        outline: none;
-        background: none;
-        display: flex;
-        gap: 10px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-weight: 900;
-        align-items: center;
-        justify-content: center;
-        padding: 10px 20px;
-        font-size: 20px;
-        position: absolute;
-        top: 10px;
-        left: 30px;
-        border-radius: 10px;
-    }
-    .closebtn:hover{
-        background: var(--black-color);
-        color: var(--white-color);
-    }
-    .closebtn:active{
-        background: var(--green-color);
-        color: var(--black-color);
-    }
-
-   & .maindiv{
+   .maindiv{
     width: calc(100% - 80px);
     background-color: var(--white-color);
     /* height: 100vh; */
     overflow-y: scroll;
     scroll-behavior: smooth;
-    padding: 20px;
+    padding: 40px 40px;
     display: flex;
     flex-direction: column;
     gap: 40px;
     justify-content: space-between;
 
-    & .selecttype{
+    .selecttype{
         display: flex;
         justify-content: space-between;
         align-items: center;
         gap: 20px;
         
-        & .text{
+        .text{
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: 900;
             font-size: 18px;
         }
 
-        & .selectsection{
+        .selectsection{
             padding: 15px 40px;
             font-weight: 500;
             letter-spacing: 2px;
@@ -76,7 +44,7 @@
         }
     }
 
-    & .headertext{
+    .headertext{
         text-align: center;
         text-transform: uppercase;
         font-weight: 900;
@@ -84,12 +52,12 @@
         font-size: 22px;
     }
 
-    & .formdiv{
+    .formdiv{
         display: flex;
         flex-direction: column;
         gap: 40px;
 
-        & .header{
+        .header{
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -97,14 +65,14 @@
             font-size: 18px;
         }
 
-       & .mandatoryinputdiv{
+       .mandatoryinputdiv{
             display: flex;
             justify-content: space-between;
             gap: 40px;
             position: relative;
             /* align-items: center; */
 
-           & .divleftside{
+           .divleftside{
                 width: 50%;
                 display: flex;
                 flex-direction: column;
@@ -120,11 +88,11 @@
                 }
             }
 
-            & .divleftside select{
+            .divleftside select{
                 text-transform: uppercase;
             }
 
-            & .divleftside::after{
+            .divleftside::after{
                 position: absolute;
             content: " ";
             background: #000;
@@ -135,17 +103,25 @@
             border-radius: 20px;
             }
 
-           & .divrightside{
+           .divrightside{
                 width: 50%;
                 display: flex;
                 flex-direction: column;
                 gap: 15px;
+
+                .text{
+                    text-align: center;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                    font-weight: 700;
+                    font-size: 18px;
+                }
             }
-            & .divrightside select{
+            .divrightside select{
                 text-transform: uppercase;
             }
 
-           & .inputfield{
+           .inputfield{
                 padding: 15px 20px;
                 font-weight: 500;
                 letter-spacing: 2px;
@@ -156,14 +132,14 @@
                 border-radius: 10px;
                 /* border-bottom: 2px solid var(--black-color); */
             }
-            & .inputfield::placeholder{
+            .inputfield::placeholder{
                 text-transform: uppercase;
             }
-            & .inputfield:active{
+            .inputfield:active{
                 border: 2px solid var(--green-color);
             }
         }
-        & .mandatoryinputdiv::after{
+        .mandatoryinputdiv::after{
             position: absolute;
             content: " ";
             background: #000;
@@ -174,13 +150,13 @@
             border-radius: 20px;
         }
 
-        & .newaddinputdiv{
+        .newaddinputdiv{
             display: flex;
             flex-direction: column;
             gap: 20px;
             justify-content: center;
 
-            & .divclosebtn{
+            .divclosebtn{
                 border: none;
                 outline: none;
                 background: none;
@@ -193,15 +169,14 @@
                 color: var(--redorange-color);
             }
 
-            & .textarea, .imagearea{
+            .textarea, .imagearea{
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 gap: 20px;
             }
-            & .textareainputfield{
+            .textareainputfield{
                 min-width: 96%;
-                /* max-width: 97%; */
                 width: 100%;
                 min-height: 150px;
                 max-height: 250px;
@@ -210,11 +185,11 @@
                 border: 2px solid var(--charcoal-color);
                 letter-spacing: 2px;
             }
-            & .textareainputfield::placeholder{
+            .textareainputfield::placeholder{
                 text-transform: uppercase;
             }
 
-            & .imageinputfield{
+            .imageinputfield{
                 min-width: 96%;
                 width: 100%;
                 padding: 20px 20px;
@@ -222,12 +197,12 @@
                 border: 2px solid var(--charcoal-color);
                 letter-spacing: 2px;
             }
-            & .imageinputfield::placeholder{
+            .imageinputfield::placeholder{
                 text-transform: uppercase;
             }
         }
 
-        & .btnsection{
+        .btnsection{
             display: flex;
             gap: 40px;
             justify-content: center;
@@ -261,7 +236,7 @@
     }
    }
 
-   & .notenavbarbody {
+   .notenavbarbody {
     position: fixed;
     right: 0;
     background: var(--black-color);
@@ -274,13 +249,13 @@
     height: 100vh;
     width: 80px;
   
-    & .iconsection {
+    .iconsection {
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
   
-    & .icons {
+    .icons {
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -295,7 +270,7 @@
       /* font-size: 25px; */
       border-radius: 12px;
     }
-    & .plusicon {
+    .plusicon {
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -311,16 +286,16 @@
       border-radius: 12px;
     }
   
-    & .icon {
+    .icon {
       width: 25px;
       height: 30px;
     }
   
-    & .icons:hover {
+    .icons:hover {
       background-color: var(--white-color);
       color: var(--black-color);
     }
-    & .icons:active{
+    .icons:active{
       background-color: var(--green-color);
       transform: scale(0.95);
       color: var(--black-color);

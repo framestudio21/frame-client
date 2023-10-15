@@ -21,7 +21,8 @@ const handlelikeClick = () => {
   setColor("red")
 }
 useEffect (() => {
-  document.body.style.color = color
+  const heart = document.querySelector(".heart")
+  heart.innerText = "color"
 }, [color])
 
   return (
@@ -38,7 +39,7 @@ useEffect (() => {
 
 
         {/* blog card design */}
-        {/* <div className={styles.blogcardbody}>
+        <div className={styles.blogcardbody}>
           <div className={styles.topsection}>
             <Image
               src="https://images.pexels.com/photos/5185446/pexels-photo-5185446.jpeg"
@@ -56,7 +57,7 @@ useEffect (() => {
             <div className={styles.middle1}>
               <div className={styles.datesection}>wed sep 06 2023</div>
               <div className={styles.likesharesection}>
-                <button onClick={handlelikeClick}><AiFillHeart/></button>
+                <button onClick={handlelikeClick} className={styles.heart}><AiFillHeart /></button>
                 <button><AiOutlineShareAlt/></button>
               </div>
             </div>
@@ -72,11 +73,12 @@ useEffect (() => {
             </div>
             <Link href="#"><div className={styles.readmore}>read more</div></Link>
           </div>
-        </div> */}
+        </div>
 
-        {/* blog footer */}
-        <Blogfooter/>
+
       </div>
+              {/* blog footer */}
+              <Blogfooter/>
     </>
   );
 };

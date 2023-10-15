@@ -1,7 +1,7 @@
 .blogmainbody{
     width: calc(100vw - 60px);
     margin-left: 60px;
-    /* padding: 20px; */
+    padding: 20px;
 
 
     /* blog card design */
@@ -75,18 +75,19 @@
                 text-transform: capitalize;
                 font-weight: 900;
                 letter-spacing: 2px;
-                font-size: 14px;
+                font-size: 15px;
+                color: var(--black-color);
             }
             .middle3description{
                 text-align: justify;
-                font-size: 12px;
+                font-size: 13px;
                 overflow: hidden;
                 display: -webkit-box;
                 -webkit-line-clamp: 3;
                 -webkit-box-orient: vertical;
                 -moz-line-clamp: 3;
                 -moz-box-orient: vertical;
-                color: var(--gray-color);
+                color: var(--black-color);
             }
         }
         .middlesection::after{

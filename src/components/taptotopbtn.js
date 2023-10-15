@@ -10,10 +10,10 @@ export default function taptotopbtn() {
   const [visible, setVisible] = useState(false)
   const toggleVisible = () => {
     const scrolled = document.documentElement.scrollTop;
-    if (scrolled > 10) {
+    if (scrolled > 150) {
       setVisible(true)
     }
-    else if (scrolled <= 10) {
+    else if (scrolled <= 150) {
       setVisible(false)
     }
   }
@@ -29,7 +29,7 @@ window.addEventListener('scroll', toggleVisible)
   return (
     <>
     <button className={styles.taptotopbtn} onClick={scrollToTop} 
-    style={{display: visible ? 'inline' : 'none'}} 
+    style={{display: visible ? 'flex' : 'none'}} 
     ><BsFillArrowUpCircleFill/></button>
     </>
   )
