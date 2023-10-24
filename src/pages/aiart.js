@@ -7,9 +7,17 @@ import Image from "next/image";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { useRouter } from "next/router";
 
-import styles from "../styles/home.module.css";
+import styles from "../styles/aiart.module.css";
 
-import { BsArrowBarLeft } from "react-icons/bs";
+import {
+  BsArrowBarLeft,
+  BsArrowLeftCircle,
+  BsArrowRightCircle,
+} from "react-icons/bs";
+import {
+  AiOutlineCloseCircle
+} from "react-icons/ai";
+import { BsArrowRightCircleFill } from "react-icons/bs";
 
 export default dynamic(() => Promise.resolve(Aiart), { ssr: false });
 
@@ -44,12 +52,18 @@ const Aiart = () => {
       <meta name="description" content="Varities of Ai Art Design and order item."/>
     </Head>
       <Navbar />
-      <div className={styles.masonrymainbody}>
-        {data.thumbnail && (
-          <div className={styles.imagedisplaydiv} onClick={close}>
-            <button name="close" onClick={close} className={styles.closebtn}>
-              <BsArrowBarLeft className={styles.leftarrow} /> close
+      <div className={styles.aiartmainbody}>
+
+
+      {data.thumbnail && (
+          <div className={styles.imagedisplaydiv}>
+
+            <div className={styles.leftside}>
+            <button name="previous" className={styles.btn}>
+              <BsArrowLeftCircle className={styles.icon} />
             </button>
+            </div>
+
             <Image
               src={data.thumbnail}
               className={styles.image}
@@ -57,28 +71,47 @@ const Aiart = () => {
               height={0}
               alt={data.name}
             />
+
+            <div className={styles.rightside}>
+            <button name="close" onClick={close} className={styles.closebtn}>
+              <AiOutlineCloseCircle className={styles.icon} />
+            </button> 
+            <button name="previous" className={styles.btn}>
+              <BsArrowRightCircle className={styles.icon} />
+            </button>
+            </div>
           </div>
         )}
 
         <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 3, 900: 4 }}>
           <Masonry columnsCount={4}>
-            {imgs.map((item) => {
+          {imgs.map((item) => {
               return (
-                <div key={item._id}>
+                <>
                   {item.thumbnail && (
-                    <Image
-                      src={item.thumbnail}
-                      alt={item.name}
-                      className={styles.aiartimage}
-                      width={0}
-                      height={0}
-                      onClick={() => viewImage(item)}
-                      loading="lazy"
-                      unoptimized
-                      // priority
-                    />
+                    <div className={styles.imagebody}>
+                      <Image
+                        key={item._id}
+                        src={item.thumbnail}
+                        className={styles.image}
+                        alt={item.name}
+                        width={0}
+                        height={0}
+                        onClick={() => viewImage(item)}
+                        // loading="lazy"
+                        optimized
+                        // priority
+                      />
+                      <button
+                        className={styles.hovertext}
+                        onClick={() => viewImage(item)}
+                      >
+                        <BsArrowRightCircleFill />
+                        <p>{item.name}</p>
+                      </button>
+                    </div>
                   )}
-                </div>
+                </>
               );
             })}
           </Masonry>

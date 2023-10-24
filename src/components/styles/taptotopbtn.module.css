@@ -12,4 +12,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    border-radius: 50px;
+}
+.taptotopbtn:active{
+    background: var(--green-color);
+    color: var(--black-color);
 }

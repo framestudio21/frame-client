@@ -121,9 +121,9 @@ window.addEventListener('scroll', toggleVisible)
                 <Link href="#">
                   <div className={styles.menu}>graphic design</div>
                 </Link>
-                <Link href="#">
+                {/* <Link href="#">
                   <div className={styles.menu}>website design</div>
-                </Link>
+                </Link> */}
                 <Link href="#">
                   <div className={styles.menu}>ai art</div>
                 </Link>

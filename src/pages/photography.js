@@ -13,9 +13,7 @@ import {
   BsArrowLeftCircle,
   BsArrowRightCircle,
 } from "react-icons/bs";
-import {
-  AiOutlineCloseCircle
-} from "react-icons/ai";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
 export default dynamic(() => Promise.resolve(Photography), { ssr: false });
 
@@ -51,25 +49,24 @@ const Photography = () => {
       <div className={styles.photographymainbody}>
         {data.thumbnail && (
           <div className={styles.imagedisplaydiv} onClick={close}>
-
             <div className={styles.leftside}>
-            <button name="previous" className={styles.previousbtn}>
-              <BsArrowLeftCircle />
-            </button>
+              <button name="previous" className={styles.btn}>
+                <BsArrowLeftCircle className={styles.icon} />
+              </button>
             </div>
 
             {data.name && (
               <div className={styles.imageauthor}>
                 name : <br /> {data.name}
-                <br/>
-                <br/>
+                <br />
+                <br />
                 {data.author && (
                   <>
-                  author : 
-                  <br /> 
-                  pc by : {data.author}
-                  <br />
-                  edited by : {data.author}
+                    author :
+                    <br />
+                    pc by : {data.author}
+                    <br />
+                    edited by : {data.author}
                   </>
                 )}
               </div>
@@ -84,12 +81,12 @@ const Photography = () => {
             />
 
             <div className={styles.rightside}>
-            <button name="close" onClick={close} className={styles.closebtn}>
-              <AiOutlineCloseCircle />
-            </button> 
-            <button name="previous" className={styles.previousbtn}>
-              <BsArrowRightCircle />
-            </button>
+              <button name="close" onClick={close} className={styles.closebtn}>
+                <AiOutlineCloseCircle className={styles.icon} />
+              </button>
+              <button name="previous" className={styles.btn}>
+                <BsArrowRightCircle className={styles.icon} />
+              </button>
             </div>
           </div>
         )}

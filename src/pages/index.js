@@ -5,8 +5,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 
 import Home from './home';
-import Graphic from "./graphic"
-import Website from './website'
+// import Graphic from "./graphic"
+// import Website from './website'
 import About from './about';
 import Contact from './contact';
 import Digitalart from './digitalart';
@@ -30,8 +30,8 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/website" element={<Graphic/>} />
-        <Route path="/graphic" element={<Website/>} />
+        {/* <Route path="/website" element={<Website/>} /> */}
+        {/* <Route path="/graphic" element={<Graphic/>} /> */}
         <Route path="/blog" element={<Blog/>} />
         <Route path="/digitalart" element={<Digitalart />} />
         <Route path="/aiart" element={<Aiart />} />
