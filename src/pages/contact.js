@@ -1,275 +1,180 @@
-import React from "react";
-import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Head from "next/head";
-
-import { BsArrowBarLeft } from "react-icons/bs";
-
-import Navbar from "../components/navbar";
-import Popup from '../components/popup'
+import dynamic from "next/dynamic";
+import Link from "next/link";
 
 import styles from "../styles/contact.module.css";
 
-export default dynamic(() => Promise.resolve(contact), { ssr: false });
+import Navbar from "../components/navbar";
 
-const contact = () => {
-  //close btn function
-  const router = useRouter();
+import { BsFillTelephoneFill } from "react-icons/bs";
+import {
+  BiLogoGmail,
+  BiLogoFacebook,
+  BiLogoInstagramAlt,
+  BiLogoBehance,
+} from "react-icons/bi";
+import { FaLocationArrow, FaPinterestP } from "react-icons/fa";
 
-  // drop down list code jquery
-  useEffect(() => {
-    const selectElement = document.getElementById("input-select");
-    const graphicInputDiv = document.getElementById("graphic-input-div");
-    const webInputDiv = document.getElementById("web-input-div");
-
-    selectElement.addEventListener("change", (event) => {
-      if (event.target.value === "graphic") {
-        graphicInputDiv.style.display = "block";
-        webInputDiv.style.display = "none";
-      } else if (event.target.value === "web") {
-        webInputDiv.style.display = "block";
-        graphicInputDiv.style.display = "none";
-      } else {
-        graphicInputDiv.style.display = "none";
-        webInputDiv.style.display = "none";
-      }
-    });
-  });
-
-  const [formData, setFormData] = useState({});
-  const [pop, setPop] = useState(null);
-
-  const prevLoc = document.referrer;
-  console.log(prevLoc);
-
-  function handleInputChange(event) {
-    const { name, value } = event.target;
-    setFormData((prevState) => ({ ...prevState, [name]: value }));
-  }
-
-  const reset = () => {
-    setFormData({});
-  };
-
-  // const PostData = async (e) => {
-async function PostData (e){
-    e.preventDefault();
-    const {
-      name,
-      email,
-      imagereference,
-      subject,
-      designtype,
-      designfor,
-      description,
-    } = formData;
-    if(!name ||
-      !email ||
-      !designtype ||
-      !designfor ||
-      !description) {
-        setPop("fill all the field")
-      }
-      else{
-    await fetch(process.env.NEXT_PUBLIC_API_URL + "/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name,
-        email,
-        imagereference,
-        subject,
-        designtype,
-        designfor,
-        description,
-      }),
-    });
-    setPop('Thank you for giving us pleasure with a new project')
-    setFormData({})}
-    setTimeout(()=>setPop(),3000)
-  };
-
+export default dynamic(() => Promise.resolve(Contactus), { ssr: false });
+const Contactus = () => {
   return (
     <>
-      <Head>
-        <title>FRAME STUDIO - CONTACT</title>
-        <meta
-          name="description"
-          content="Contact with the Frame Studio Team to make design for varities items in matter of Graphic Design, Website Design, Digital Art, Ai Art etc."
-        />
-      </Head>
       <Navbar />
-
       <div className={styles.mainbody}>
-        <button onClick={() => router.back()} className={styles.closebtn}>
-          <BsArrowBarLeft className={styles.leftarrow} /> back
-        </button>
+        <div className={styles.leftside}>
 
-        <div className={styles.contactbody}>
-          <div className={styles.popupbox}><Popup text={pop}/></div>
-          <div className={styles.contactform}>
-            <div className={styles.title}>
-              contact.com
-              <p>get in touch with us</p>
+          <div className={styles.contactinformation}>
+            <div className={styles.text}>
+              <div className={styles.heading}>contact information</div>
+              <div className={styles.subtext}>
+                i'll up the form and our Team will get back to you within 24
+                hours.
+              </div>
             </div>
-            <div className={styles.form}>
-              <form method="POST">
-                <div className={styles.inputfield}>
-                  <label className={styles.formlabel}>
-                    Name :<span>*</span>
-                  </label>
-                  <input
-                    className={styles.formfield}
-                    name="name"
-                    type={"text"}
-                    value={formData.name || ""}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-                <div className={styles.inputfield}>
-                  <label className={styles.formlabel}>
-                    Email :<span>*</span>
-                  </label>
-                  <input
-                    className={styles.formfield}
-                    type={"email"}
-                    name="email"
-                    value={formData.email || ""}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-                <div className={styles.inputfield}>
-                  <label className={styles.formlabel}>Image Reference :</label>
-                  <input
-                    className={styles.formfield}
-                    type={"text"}
-                    name="imagereference"
-                    value={formData.imagereference || ""}
-                    onChange={handleInputChange}
-                  />
-                </div>
-                <div className={styles.inputfield}>
-                  <label htmlFor="input-select" className={styles.formlabel}>
-                    Choose design :<span>*</span>
-                  </label>
-                  <select
-                    className={styles.formfield}
-                    id="input-select"
-                    name="designtype"
-                    value={formData.designtype || ""}
-                    onChange={handleInputChange}
-                    required
-                  >
-                    <option value="">Select an option</option>
-                    <option value="graphic">Graphic desing</option>
-                    <option value="web">web developing</option>
-                  </select>
-                </div>
-                <div id="graphic-input-div" className={styles.inputfield}>
-                  <label htmlFor="graphic-input" className={styles.formlabel}>
-                    Graphics Design for : *
-                  </label>
-                  <select
-                    className={styles.formfield}
-                    name="designfor"
-                    id="graphic-input"
-                    value={formData.designfor || ""}
-                    onChange={handleInputChange}
-                  >
-                    <option value="">Select an option</option>
-                    <option value="logo">Logo Design</option>
-                    <option value="Visual identity graphic design">
-                      Visual identity graphic design
-                    </option>
-                    <option value="Marketing & advertising graphic design">
-                      Marketing & advertising graphic design
-                    </option>
-                    <option value="Publication graphic design">
-                      Publication graphic design
-                    </option>
-                    <option value="Packaging graphic design (Branding)">
-                      Packaging graphic design (Branding)
-                    </option>
-                    <option value="Motion graphic design">
-                      Motion graphic design
-                    </option>
-                    <option value="Environmental graphic design">
-                      Environmental graphic design
-                    </option>
-                    <option value="Any other Matter">Any other Matter</option>
-                  </select>
-                  <style jsx>{`
-                    #graphic-input-div {
-                      display: none;
-                    }
-                  `}</style>
-                </div>
+            <div className={styles.contact}>
+              <div className={styles.information}>
+                <BsFillTelephoneFill /> +91 6290985252
+              </div>
+              <div className={styles.information}>
+                <BiLogoGmail /> info.framestudio21@gmail.com
+              </div>
+              <div className={styles.information}>
+                <FaLocationArrow /> kolkata, india
+              </div>
+            </div>
+          </div>
 
-                <div id="web-input-div" className={styles.inputfield}>
-                  <label htmlFor="web-input" className={styles.formlabel}>
-                    Web Design for : *
-                  </label>
-                  <select
-                    className={styles.formfield}
-                    name="designfor"
-                    id="web-input"
-                    value={formData.designfor || ""}
-                    onChange={handleInputChange}
-                  >
-                    <option value="">Select an option</option>
-                    <option value="E-commerce Site">E-commerce Site</option>
-                    <option value="Business Site">Business Site</option>
-                    <option value="Blog Website">Blog Website</option>
-                    <option value="Portfolio Site">Portfolio Site</option>
-                    <option value="Personal WebSite">Personal WebSite</option>
-                    <option value="Event WebSite">Event WebSite</option>
-                    <option value="NonProfit Website">NonProfit Website</option>
-                    <option value="Informational WebSite">
-                      Informational WebSite
-                    </option>
-                    <option value="Membership WebSite">
-                      Membership WebSite
-                    </option>
-                    <option value="Online Forum">Online Forum</option>
-                    <option value="Any Other Matter">Any Other Matter</option>
-                  </select>
-                  <style jsx>{`
-                    #web-input-div {
-                      display: none;
-                    }
-                  `}</style>
-                </div>
+          <div className={styles.socialicondiv}>
+            <div className={styles.icondiv}>
+              <Link href="#">
+                {" "}
+                <BiLogoFacebook className={styles.facebook} />
+              </Link>
+            </div>
+            <div className={styles.icondiv}>
+              <Link href="#">
+                <BiLogoGmail className={styles.gmail} />
+              </Link>
+            </div>
+            <div className={styles.icondiv}>
+              <Link href="#">
+                <BiLogoInstagramAlt className={styles.instagram} />
+              </Link>
+            </div>
+            <div className={styles.icondiv}>
+              <Link href="#">
+                <FaPinterestP className={styles.pintrest} />
+              </Link>
+            </div>
+            <div className={styles.icondiv}>
+              <Link href="#">
+                <BiLogoBehance className={styles.behance} />
+              </Link>
+            </div>
+          </div>
+        </div>
 
-                <div className={styles.inputfield}>
-                  <label className={styles.formlabel}>Describe : *</label>
-                  <textarea
-                    className={styles.formfield}
-                    name="description"
-                    value={formData.description || ""}
-                    onChange={handleInputChange}
-                    required={true}
-                  />
+        <div className={styles.rightside}>
+          <form className={styles.formdiv}>
+            <div className={styles.blocks}>
+              <div className={styles.inputfield}>
+                {/* <label>first name</label> */}
+                <input type="text" className={styles.textinput} name="firstname" placeholder="your first name"/>
+              </div>
+              <div className={styles.inputfield}>
+                {/* <label>Last name</label> */}
+                <input type="text" className={styles.textinput} name="lastname" placeholder="your last name"/>
+              </div>
+            </div>
+            <div className={styles.blocks}>
+              <div className={styles.inputfield}>
+                {/* <label>city</label> */}
+                <input type="text" className={styles.textinput} name="city" placeholder="your city"/>
+              </div>
+              <div className={styles.inputfield}>
+                {/* <label>Phone</label> */}
+                <input type="number" className={styles.textinput} name="phone" placeholder="your phone"/>
+              </div>
+            </div>
+            <div className={styles.blocks}>
+              <div className={styles.inputfield}>
+                {/* <label>email</label> */}
+                <input type="email" className={styles.textinput} name="email" placeholder="your email"/>
+              </div>
+            </div>
+            <div className={styles.blocks}>
+              <div className={styles.inputfield}>
+                {/* <label>subject</label> */}
+                <input type="text" className={styles.textinput} name="subject" placeholder="subject"/>
+              </div>
+            </div>
+            <div className={styles.radioblocks}>
+                <div className={styles.radiolabel}>what the matter for your query ?</div>
+              <div className={styles.inputfield}>
+                <div className={styles.radiodiv}>
+                <input type="radio" id="graphic-design" value="graphic-design" name="design"/>
+                <label className={styles.radioinputlabel} for="graphic-design">Graphic Design</label>
                 </div>
-                <div className={styles.formbutton}>
-                  <input
-                    className={styles.submit}
-                    type="submit"
-                    value="Submit"
-                    onClick={PostData}
-                  />
-                  <input
-                    className={styles.reset}
-                    type="reset"
-                    value="reset"
-                    onClick={reset}
-                  />
+                <div className={styles.radiodiv}>
+                <input type="radio" id="website-design" value="website-design" name="design"/>
+                <label className={styles.radioinputlabel} for="website-design">Website Design</label>
                 </div>
-              </form>
+                <div className={styles.radiodiv}>
+                <input type="radio" id="logo-design" value="logo-design" name="design"/>
+                <label className={styles.radioinputlabel} for="logo-design">Logo Design</label>
+                </div>
+                <div className={styles.radiodiv}>
+                <input type="radio" id="typography-design" value="typography-design" name="design"/>
+                <label className={styles.radioinputlabel} for="typography-design">typography</label>
+                </div>
+                <div className={styles.radiodiv}>
+                <input type="radio" id="branding-design" value="branding-design" name="design"/>
+                <label className={styles.radioinputlabel} for="branding-design">branding</label>
+                </div>
+                <div className={styles.radiodiv}>
+                <input type="radio" id="other-design" value="other-design" name="design"/>
+                <label className={styles.radioinputlabel} for="other-design">other</label>
+                </div>
+              </div>
+            </div>
+            <div className={styles.blocks}>
+              <div className={styles.inputfield}>
+                {/* <label>massage</label> */}
+                <textarea className={styles.textarea} type="text" name="massage" placeholder="tell us about it . . ."/>
+              </div>
+            </div>
+            <div className={styles.btnblocks}>
+                <button className={styles.sendbtn}>submit</button>
+                <button className={styles.resetbtn}>reset</button>
+            </div>
+          </form>
+          <div className={styles.followlinks}>
+            <div className={styles.text}>Follow us here</div>
+            <div className={styles.links}>
+              <div className={styles.link}>
+                <Link href="#">FACEBOOK</Link>
+              </div>
+              <div className={styles.link}>
+                <Link href="#">INSTAGRAM</Link>
+              </div>
+              <div className={styles.link}>
+                <Link href="#">pintrest</Link>
+              </div>
+              <div className={styles.link}>
+                <Link href="#">behance</Link>
+              </div>
+              <div className={styles.link}>
+                <Link href="#">TWITTER</Link>
+              </div>
+              <div className={styles.link}>
+                <Link href="#">YOUTUBE</Link>
+              </div>
+              <div className={styles.link}>
+                <Link href="#">DRIBBLE</Link>
+              </div>
+              <div className={styles.link}>
+                <Link href="#">website</Link>
+              </div>
             </div>
           </div>
         </div>

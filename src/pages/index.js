@@ -13,7 +13,6 @@ import Digitalart from './digitalart';
 import Aiart from './aiart';
 import Photography from './photography';
 import Feedback from './feedback';
-import Blog from './blog'
 
 
 import Errorpage from './_error';
@@ -30,14 +29,17 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        {/* <Route path="/website" element={<Website/>} /> */}
-        {/* <Route path="/graphic" element={<Graphic/>} /> */}
-        <Route path="/blog" element={<Blog/>} />
         <Route path="/digitalart" element={<Digitalart />} />
         <Route path="/aiart" element={<Aiart />} />
         <Route path="/photography" element={<Photography />} />
+
+        
         <Route path='/feedback' element={<Feedback/>}/>
+
+
         <Route path="/admin" element={<Admin />} />
+
+
         <Route path="*" element={<Errorpage />} />
         <Route path="/404" element={<Errorpage />} />
       </Routes>

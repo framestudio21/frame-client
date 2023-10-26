@@ -1,20 +1,10 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-// import Slider from "react-slick";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
-
-import {
-  BsArrowBarLeft,
-  BsArrowRightCircleFill,
-  BsFillArrowLeftCircleFill,
-  BsFillArrowRightCircleFill,
-} from "react-icons/bs";
 import { FaTwitterSquare, FaGithub } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 import { AiFillFacebook } from "react-icons/ai";
@@ -383,6 +373,8 @@ function Id() {
                     </div>
                     <div className={styles.nextbackbar}></div>
                   </div>
+
+                  
                   <Orderbox/>
       <CardCarousel/>
           {/* {showModal && <Commentbox/>} */}

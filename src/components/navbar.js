@@ -76,9 +76,9 @@ const Navbar = () => {
                 >
                   <li>photography</li>
                 </Link>
-                <Link href="/blog" rel="follow" className={styles.navlist}>
+                {/* <Link href="/blog" rel="follow" className={styles.navlist}>
                   <li>blog</li>
-                </Link>
+                </Link> */}
                 <Link href="/about" rel="follow" className={styles.navlist}>
                   <li>about</li>
                 </Link>

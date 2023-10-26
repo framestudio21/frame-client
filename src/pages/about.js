@@ -3,8 +3,6 @@ import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
 
-import { BsArrowBarLeft } from 'react-icons/bs';
-
 import styles from "../styles/about.module.css";
 
 import framestudiologo from "../image//frame-studio-1.svg";
@@ -13,12 +11,9 @@ import admin from "../image/people.png";
 
 import Navbar from "../components/navbar";
 
-import { useRouter } from "next/router";
 
 export default dynamic(() => Promise.resolve(About), { ssr: false });
-
 const About = () => {
-  const router = useRouter()
   return (
     <>
     <Head>
@@ -27,11 +22,7 @@ const About = () => {
     </Head>
       <Navbar/>
         <div className={styles.mainbody}>
-        <button onClick={ () => router.back()} className={styles.closebtn} >
-        <BsArrowBarLeft className={styles.leftarrow} /> back
-          </button>
-
-            <Image
+                <Image
               className={styles.aboutlogo}
               src={framestudiologo}
               alt="Frame Studio Logo"
@@ -77,11 +68,6 @@ const About = () => {
                   He professionally work as an Advocate. In passion work as a
                   Graphics Designer.
                 </p>
-                {/* <p className={styles.cvlink}>
-                  <Link className="address" href="#">
-                    <button>download cv</button>
-                  </Link>
-                </p> */}
               </div>
             </div>
           </div>

@@ -1,220 +1,292 @@
 .mainbody {
+  background: #000;
   width: calc(100% - 60px);
-  height: 100vh;
-  /* background: url("../image/wallpaper.svg"); */
-  background-size: cover;
-  background-repeat: no-repeat;
   margin-left: 60px;
-  display: flex;
+  height: 100vh;
   position: relative;
-  & .closebtn {
-    position: absolute;
-    top: 25px;
-    left: 30px;
-    border: none;
-    background: none;
-    font-weight: 600;
-    font-size: 20px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    & .leftarrow {
-      margin-right: 10px;
-    }
-  }
-
-  & .contactbody {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-
-    & .contactform {
-      width: 60%;
-      padding: 20px;
-      /* background: rgba(255, 255, 255, 0.43); */
-      
-/* background-color: #2d3436; */
-background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%);
-
-      border-radius: 12px;
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
-      z-index: 9;
-    }
-  }
-  /* & .contactbody::before{
-    content: " ";
-    background-color: var(--green-color);
-    border-radius: 50%;
-    top: 30px;
-    left: 210px;
-    position: absolute;
-    height: 250px;
-    width: 250px;
-  }
-  & .contactbody::after{
-    content: " ";
-    background-color: var(--redorange-color);
-    border-radius: 50%;
-    bottom: 30px;
-    right: 210px;
-    position: absolute;
-    height: 250px;
-    width: 250px;
-  } */
-}
-
-.contactform {
-  & .title {
-    font-size: 60px;
-    letter-spacing: 5px;
-  }
-  & .title p {
-    font-size: 25px;
-    margin-top: -5px;
-    letter-spacing: 3px;
-  }
-}
-
-.form .inputfield {
-  height: 50px;
-  margin: 20px 0 10px 0;
-  font-size: 25px;
-}
-
-.formfield {
-  font-family: inherit;
-  width: 100%;
-  border: 0;
-  border-bottom: 2px solid #000;
-  outline: 0;
-  font-size: 1.3rem;
-  padding: 5px 0 3px 0;
-  /* background: transparent; */
-  background: none;
-  transition: border-color 0.2s;
-  position: relative;
-  text-transform: lowercase;
-}
-.formfield::placeholder {
-  color: transparent;
-}
-.formfield:placeholder-shown ~ .formlabel {
-  font-size: 1.2rem;
-  cursor: text;
-}
-.formlabel {
-  display: block;
-  transition: 0.2s;
-  font-size: 1rem;
-  color: gray;
-  text-transform: lowercase;
-}
-
-.submit,
-.reset {
-  padding: 10px 0;
-  width: 200px;
-  font-weight: 900;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: 20px;
-  border: none;
-  background-color: var(--green-color);
-  margin-top: 30px;
-  border-radius: 40px;
-}
-.formbutton {
+  /* padding: 20px; */
   display: flex;
+  /* gap: 20px; */
   justify-content: space-between;
-}
-.submit:hover {
-  border-radius: 50px;
-}
-.reset:hover {
-  border-radius: 50px;
-}
-.reset {
-  background: var(--redorange-color);
-  color: #fff;
-}
 
-@media screen and (max-width: 800px) {
-  .mainbody {
-    margin-left: 60px;
-    padding: 0;
-
-    & .top {
-      width: 100%;
-      height: 80px;
-      padding: 0;
-      /* margin-bottom: 20px; */
-
-      & .closebtn {
-        top: 30px;
-        left: 30px;
-      }
-    }
-
-    & .contactbody {
-      width: 100%;
-      margin: 20px 0 30px 0;
-
-      & .contactform {
-        width: 100%;
-        padding: 0 30px;
-      }
-    }
+  & .leftside,
+  & .rightside {
+    height: 100%;
+    background-color: var(--white-color);
+    padding: 20px;
   }
-}
+  & .leftside {
+    width: 30%;
+    background: url("../image/bg3.svg");
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-@media screen and (max-width: 600px) {
-  .mainbody {
-    width: 100%;
-    height: calc(100vh - 60px);
-    padding: 0 25px;
-    margin-left: 0;
-    margin-top: 60px;
+    & .contactinformation {
+      background: rgba(255, 255, 255, 0.55);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
+      border-radius: 12px;
+      /* border: 1px solid rgba(255, 255, 255, 0.18); */
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
 
-    & .closebtn {
-      display: none;
-    }
+      & .text {
+        display: flex;
+        flex-direction: column;
 
-    & .contactbody {
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      position: relative;
-
-      & .popupbox {
-        position: absolute;
-        top: 100px;
-        width: 100%;
-        text-align: center;
-      }
-
-      & .contactform {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-
-        & .title {
-          font-size: 50px;
-        }
-        & .title p {
+        & .heading {
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          text-align: center;
+          font-weight: 800;
           font-size: 20px;
         }
+        & .subtext {
+          letter-spacing: 1px;
+          text-transform: lowercase;
+          font-size: 15px;
+          text-align: center;
+        }
+      }
+
+      & .contact {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        & .information {
+          display: flex;
+          gap: 10px;
+          font-size: 15px;
+          letter-spacing: 2px;
+          text-transform: lowercase;
+          font-weight: 600;
+        }
       }
     }
-    & .formbutton {
-      margin-top: 20px;
-      & .submit {
-        margin-right: 10px;
+
+    & .socialicondiv {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+
+      & .icondiv {
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--black-color);
+        border: 2px solid var(--black-color);
+        border-radius: 10px;
+
+        & .behance {
+          font-size: 24px;
+        }
+        & .facebook {
+          font-size: 24px;
+        }
+        & .gmail {
+          font-size: 24px;
+        }
+        & .instagram {
+          font-size: 24px;
+        }
+        & .pintrest {
+          font-size: 22px;
+        }
+      }
+
+      .icondiv:hover {
+        background: var(--black-color);
+        color: var(--white-color);
+      }
+      .icondiv:active{
+        background: var(--green-color);
+        border: 2px solid var(--green-color);
+        color: var(--black-color);
+      }
+    }
+  }
+  & .rightside {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-between;
+
+    & .followlinks{
+      display: flex;
+      gap: 5px;
+      flex-direction: column;
+
+      & .text{
+        letter-spacing: 1px;
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .links{
+        display: flex;
+        gap: 10px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 200;
+        font-size: 12px;
+
+        .link{
+          position: relative;
+        }
+        .link:hover{
+          font-weight: 700;
+        }
+        .link:hover::after{
+          position: absolute;
+          width: 100%;
+          left: 0;
+          bottom: -5px;
+          height: 1px;
+          background: #000;
+          content: " ";
+        }
+      }
+    }
+
+    & .formdiv{
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 20px;
+      border: 2px solid var(--black-color);
+
+      & .blocks{
+        display: flex;
+        gap: 10px;
+
+        & .inputfield{
+          width: 100%;
+
+          & .textarea{
+            min-width: 100%;
+            max-width: 100%;
+            min-height: 150px;
+          max-height: 150px;
+          outline: none;
+          border: none;
+          border-bottom: 2px solid var(--black-color);
+          background: none;
+          padding: 10px 0;
+          font-weight: 700;
+          letter-spacing: 2px;
+          font-size: 14px;
+          text-transform: lowercase;
+          transition: border-color 0.2s;
+          cursor: text;
+          }
+          & .textarea::placeholder{
+            font-weight: 200;
+          }
+        }
+
+        & .inputfield .textinput{
+          width: 100%;
+          height: 50px;
+          outline: none;
+          border: none;
+          border-bottom: 2px solid var(--black-color);
+          background: none;
+          padding: 10px 20px;
+          font-weight: 700;
+          letter-spacing: 2px;
+          font-size: 18px;
+          text-transform: lowercase;
+          transition: border-color 0.2s;
+          /* border-radius: 12px; */
+          cursor: text;
+        }
+        & .textinput::placeholder{
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          font-size: 10px;
+        }
+        & .textinput:active{
+          background: none;
+        }
+      }
+      & .radioblocks{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        & .radiolabel{
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          font-weight: 900;
+          font-size: 12px;
+        }
+        & .inputfield{
+          display: flex;
+          gap: 10px;
+
+          & .radiodiv{
+            display: flex;
+            gap: 5px;
+            border: 2px solid var(--black-color);
+            padding: 12px 15px;
+            cursor: pointer;
+          }
+
+          & .radioinputlabel{
+            text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: 2px;
+            font-size: 12px;
+            cursor: pointer;
+          }
+        }
+      }
+
+      & .btnblocks{
+        display: flex;
+        gap: 30px;
+
+        & .sendbtn, .resetbtn{
+          outline: none;
+          border: 2px solid var(--black-color);
+          background: none;
+          color: var(--black-color);
+          padding: 10px 40px;
+          text-transform: uppercase;
+          letter-spacing: 5px;
+          font-weight: 700;
+          font-size: 15px;
+          border-radius: 40px;
+          cursor: pointer;
+        }
+
+        .sendbtn:hover{
+          background: var(--black-color);
+          color: var(--offwhite-color);
+        }
+        .sendbtn:active{
+          background: var(--green-color);
+          border: 2px solid var(--green-color);
+          color: var(--black-color);
+        }
+
+        .resetbtn:hover{
+          background: var(--black-color);
+          color: var(--offwhite-color);
+        }
+        .resetbtn:active{
+          background: var(--redorange-color);
+          border: 2px solid var(--redorange-color);
+          color: var(--black-color);
+        }
       }
     }
   }
