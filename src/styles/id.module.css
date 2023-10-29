@@ -115,69 +115,55 @@
 
 /* project next and back and social media icon design */
 .nextbackmaindiv{
-  width: calc(100vw - 60px);
-  margin-left: 60px;
+  margin: 5px 5px 5px 65px;
+  border: 2px solid var(--black-color);
   display: flex;
-  flex-direction: column;
-  gap: 5px;
-  /* margin-bottom: 15px; */
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
 
-  .nextbackbar{
-    width: 100%;
-    height: 2px;
-    content: " ";
-    background: var(--charcoal-color);
-  }
-
-  .nextbackelement{
+  .nextbacklink{
     display: flex;
+    gap: 15px;
     align-items: center;
-    justify-content: space-between;
-    padding: 10px 40px;
 
-    .nextbacklink{
-      display: flex;
-      gap: 15px;
-      align-items: center;
-
-      .nextbackbutton{
-        border: 1px solid transparent;
-        background: none;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-size: 14px;
-        font-weight: 700;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        color: var(--gray-color);
-      }
-      .nextbackbutton:hover{
-        color: var(--black-color);
-      }
-      .nextbackbutton:active{
-        color: var(--green-color);
-      }
-    }
-
-    .sociallink{
+    .nextbackbutton{
+      border: 1px solid transparent;
+      background: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 16px;
+      font-weight: 700;
       display: flex;
       align-items: center;
       gap: 10px;
+      color: var(--gray-color);
+    }
+    .nextbackbutton:hover{
+      color: var(--black-color);
+    }
+    .nextbackbutton:active{
+      color: var(--green-color);
+    }
+  }
 
-      .icons{
-        cursor: pointer;
-        .icon{
-          width: 20px;
-        height: 20px;
-        color: var(--gray-color);
-        }
-        .icon:hover{
-          color: var(--black-color);
-        }
-        .icon:active{
-          color: var(--green-color);
-        }
+  .sociallink{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .icons{
+      cursor: pointer;
+      .icon{
+        width: 20px;
+      height: 20px;
+      color: var(--gray-color);
+      }
+      .icon:hover{
+        color: var(--black-color);
+      }
+      .icon:active{
+        color: var(--green-color);
       }
     }
   }

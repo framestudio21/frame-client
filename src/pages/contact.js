@@ -112,28 +112,28 @@ const Contactus = () => {
                 <div className={styles.radiolabel}>what the matter for your query ?</div>
               <div className={styles.inputfield}>
                 <div className={styles.radiodiv}>
-                <input type="radio" id="graphic-design" value="graphic-design" name="design"/>
-                <label className={styles.radioinputlabel} for="graphic-design">Graphic Design</label>
+                <input type="radio" id="graphic-design" value="graphicdesign" name="category"/>
+                <label className={styles.radioinputlabel} for="graphicdesign">Graphic Design</label>
                 </div>
                 <div className={styles.radiodiv}>
-                <input type="radio" id="website-design" value="website-design" name="design"/>
-                <label className={styles.radioinputlabel} for="website-design">Website Design</label>
+                <input type="radio" id="website-design" value="websitedesign" name="category"/>
+                <label className={styles.radioinputlabel} for="websitedesign">Website Design</label>
                 </div>
                 <div className={styles.radiodiv}>
-                <input type="radio" id="logo-design" value="logo-design" name="design"/>
-                <label className={styles.radioinputlabel} for="logo-design">Logo Design</label>
+                <input type="radio" id="logo-design" value="logodesign" name="category"/>
+                <label className={styles.radioinputlabel} for="logodesign">Logo Design</label>
                 </div>
                 <div className={styles.radiodiv}>
-                <input type="radio" id="typography-design" value="typography-design" name="design"/>
-                <label className={styles.radioinputlabel} for="typography-design">typography</label>
+                <input type="radio" id="typography-design" value="typographydesign" name="category"/>
+                <label className={styles.radioinputlabel} for="typographydesign">typography</label>
                 </div>
                 <div className={styles.radiodiv}>
-                <input type="radio" id="branding-design" value="branding-design" name="design"/>
-                <label className={styles.radioinputlabel} for="branding-design">branding</label>
+                <input type="radio" id="branding-design" value="brandingdesign" name="category"/>
+                <label className={styles.radioinputlabel} for="brandingdesign">branding</label>
                 </div>
                 <div className={styles.radiodiv}>
-                <input type="radio" id="other-design" value="other-design" name="design"/>
-                <label className={styles.radioinputlabel} for="other-design">other</label>
+                <input type="radio" id="other-design" value="otherdesign" name="category"/>
+                <label className={styles.radioinputlabel} for="otherdesign">other</label>
                 </div>
               </div>
             </div>

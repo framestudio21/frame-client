@@ -135,25 +135,14 @@ export default function CardCarousel() {
                       <div className={styles.cardheader}>{item.name}</div>
                       <div className={styles.cardtext}>{item.text1}</div>
                       <div className={styles.cardbar}></div>
-                      <div className={styles.iconlinksection}>
-                        <div className={styles.socialicons}>
-                          <Link href="#" className={styles.icons}>
-                            <FaFacebookF className={styles.icon} />
-                          </Link>
-                          <Link href="#" className={styles.icons}>
-                            <FaInstagram className={styles.icon} />
-                          </Link>
-                          <Link href="#" className={styles.icons}>
-                            <FaPinterest className={styles.icon} />
-                          </Link>
-                        </div>
-                          <Link href={`/${item.designtype}/${item._id}`} className={styles.readmore}>
+
+                      <Link href={`/${item.designtype}/${item._id}`} className={styles.readmore}>
                             read more
                             <IoIosArrowDroprightCircle
                               className={styles.icon}
                             />
                           </Link>
-                      </div>
+                          
                     </div>
                   </div>
                 </>
@@ -164,47 +153,4 @@ export default function CardCarousel() {
       </div>
     </>
   );
-}
-
-{
-  /* <div className={styles.projectcardcarousaltitle}>Related Works</div>
-      <div>
-        <Slider {...settings} className={styles.slider}>
-          {imgs.map((item) => {
-            return (
-              <>
-                <Link href={`/${item.designtype}/${item._id}`}>
-                  <div className={styles.cardbody} key={item._id}>
-                    {item.thumbnail && (
-                      <div className={styles.top}>
-                        <Image
-                          src={item.thumbnail}
-                          className={styles.cardimage}
-                          alt={item.name}
-                          pr="true"
-                          priority="true"
-                          width={0}
-                          height={0}
-                        />
-                        <div className={styles.text}>
-                          <BsArrowRightCircleFill
-                            className={styles.leftarrow}
-                          />
-                        </div>
-                        <div className={styles.bottom}>
-                          <div className={styles.cardtitle}>{item.name}</div>
-                          <div className={styles.cardtext}>{item.text1}</div>
-                          <div className={styles.cardlink}>
-                            <button>read more . . .</button>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </Link>
-              </>
-            );
-          })}
-        </Slider>
-      </div> */
 }

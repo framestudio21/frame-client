@@ -340,9 +340,7 @@ function Id() {
 
       {/* next and previour button and social media link section */}
       <div className={styles.nextbackmaindiv}>
-                    <div className={styles.nextbackbar}></div>
-                    <div className={styles.nextbackelement}>
-                      <div className={styles.nextbacklink}>
+      <div className={styles.nextbacklink}>
                         <Link href="#" className={styles.nextbackbutton}><IoMdArrowDropleftCircle className={styles.icon}/>previous</Link>
                         <span>:</span>
                         <Link href="#" className={styles.nextbackbutton}>next<IoMdArrowDroprightCircle className={styles.icon}/></Link>
@@ -370,8 +368,6 @@ function Id() {
                             <FaGoogle className={styles.icon}/>
                         </Link>
                       </div>
-                    </div>
-                    <div className={styles.nextbackbar}></div>
                   </div>
 
                   
