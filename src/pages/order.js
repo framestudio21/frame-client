@@ -11,223 +11,6 @@ import styles from "../styles/order.module.css";
 import Link from "next/link";
 
 
-const AddOrderField = () => {
-  return (
-    <>
-              <label className={styles.divheader}>order information</label>
-<div className={styles.billingdiv}>
-  <input
-    type="text"
-    name="designname"
-    placeholder="enter your design name"
-    className={styles.inputfield}
-  />
-  <select name="category" id="category-select" className={styles.inputfield}>
-    <option value="">select the category</option>
-    <option value="graphic">Graphic Design</option>
-    <option value="website">Website Design</option>
-    <option value="branding">Branding</option>
-    <option value="logodesign">Logo Design</option>
-    <option value="typography">Typograpgy</option>
-    <option value="other">other matter</option>
-  </select>
-
-  {/* graphic option */}
-  <div id="graphic-selection-div" className={styles.selectiondiv} style={{display: "none"}}>
-    <select name="tag" className={styles.inputfield} id="graphic">
-      <option>select the graphic type</option>
-      <option>visual identity</option>
-      <option>advertisement</option>
-      <option>publication</option>
-      <option>motion graphic</option>
-      <option>environmental graphic</option>
-      <option>informational graphic</option>
-      <option>illustration</option>
-      <option>layout graphic</option>
-      <option>packing</option>
-      <option>other matter</option>
-    </select>
-    <select name="graphicratio" className={styles.inputfield} id="graphic">
-      <option value="">select the graphic size ratio</option>
-      <option value="1:1suqare">1:1 (square size)</option>
-      <option value="9:16potrate">9:16 (potrate size)</option>
-      <option value="16:9landscape">16:9 (landscape size)</option>
-    </select>
-   <div className={styles.fielddiv} id="graphic">
-   <input
-      type="number"
-      name="width"
-      placeholder="enter graphic/poster/banner width"
-      className={styles.inputfield}
-    />
-    <input
-      type="number"
-      name="height"
-      placeholder="enter graphic/poster/banner height"
-      className={styles.inputfield}
-    />
-   </div>
-   <select name="graphiclanguage" className={styles.inputfield} id="graphic">
-      <option value="">select the graphic language</option>
-      <option value="english">english</option>
-      <option value="bengali">bengali</option>
-      <option value="other">other language</option>
-    </select>
-    <input
-      type="text"
-      name="projectref"
-      placeholder="enter our project reference (if any)"
-      className={styles.inputfield}
-      id="graphic"
-    />
-  </div>
-
-  {/* website option */}
-  <div id="website-selection-div" className={styles.selectiondiv} style={{display: "none"}}>
-    <select name="tag" className={styles.inputfield} id="website">
-      <option>select the website type</option>
-      <option>e-commerce site</option>
-      <option>business site</option>
-      <option>portfolio site</option>
-      <option>blog site</option>
-      <option>event site</option>
-      <option>personal site</option>
-      <option>informational site</option>
-      <option>non-profit site</option>
-      <option>membership site</option>
-      <option>online forum site</option>
-      <option>other type site</option>
-    </select>
-    <input
-      type="text"
-      name="projectref"
-      placeholder="enter our project reference (if any)"
-      className={styles.inputfield}
-      id="website"
-    />
-  </div>
-
-   {/* branding option */}
-   <div id="branding-selection-div" className={styles.selectiondiv} style={{display: "none"}}>
-   <select name="brandinglanguage" className={styles.inputfield} id="branding">
-      <option value="">select the branding language</option>
-      <option value="english">english</option>
-      <option value="bengali">bengali</option>
-      <option value="other">other language</option>
-    </select>
-    <div className={styles.fielddiv}>
-    <select name="brandinglogo" className={styles.inputfield} id="branding">
-      <option value="">select logo include or not</option>
-      <option value="yes">yes</option>
-      <option value="no">no</option>
-    </select>
-    <select name="brandingpackeging" className={styles.inputfield} id="branding">
-      <option value="">select full packeging include or not</option>
-      <option value="yes">yes</option>
-      <option value="no">no</option>
-    </select>
-    </div>
-    <input
-      type="text"
-      name="projectref"
-      placeholder="enter our project reference (if any)"
-      className={styles.inputfield}
-      id="branding"
-    />
-  </div>
-
-  {/* logo design option */}
-  <div id="logodesign-selection-div" className={styles.selectiondiv} style={{display: "none"}}>
-   <select name="logolanguage" className={styles.inputfield} id="logodesign">
-      <option value="">select the logo language</option>
-      <option value="english">english</option>
-      <option value="bengali">bengali</option>
-      <option value="other">other language</option>
-    </select>
-    <input
-      type="text"
-      name="projectref"
-      placeholder="enter our project reference (if any)"
-      className={styles.inputfield}
-      id="logodesign"
-    />
-  </div>
-
-  {/* typography option */}
-  <div id="typography-selection-div" className={styles.selectiondiv} style={{display: "none"}}>
-    <select name="typographyratio" className={styles.inputfield} id="typography">
-      <option value="">select the graphic size ratio</option>
-      <option value="1:1suqare">1:1 (square size)</option>
-      <option value="9:16potrate">9:16 (potrate size)</option>
-      <option value="16:9landscape">16:9 (landscape size)</option>
-    </select>
-   <div className={styles.fielddiv} id="typography">
-   <input
-      type="number"
-      name="width"
-      placeholder="enter graphic/poster/banner width"
-      className={styles.inputfield}
-    />
-    <input
-      type="number"
-      name="height"
-      placeholder="enter graphic/poster/banner height"
-      className={styles.inputfield}
-    />
-   </div>
-   <select name="typographylanguage" className={styles.inputfield} id="typography">
-      <option value="">select the graphic language</option>
-      <option value="english">english</option>
-      <option value="bengali">bengali</option>
-      <option value="other">other language</option>
-    </select>
-    <input
-      type="text"
-      name="projectref"
-      placeholder="enter our project reference (if any)"
-      className={styles.inputfield}
-      id="typography"
-    />
-  </div>
-
-  {/* other option */}
-  <div id="other-selection-div" className={styles.selectiondiv} style={{display: "none"}}>
-    <input
-      type="text"
-      name="projectref"
-      placeholder="enter our project reference (if any)"
-      className={styles.inputfield}
-      id="other"
-    />
-  </div>
-
-  <div className={styles.fielddiv}>
-    <input
-      type="url"
-      name="imagereference"
-      placeholder="enter your image reference url"
-      className={styles.inputfield}
-    />
-    <button
-      onClick={() => onAddImgReftBtnClick()}
-      className={styles.addrefbtn}
-    >
-      add url field
-    </button>
-  </div>
-
-  <div className={styles.newreffielddiv}>{imgreffieldinputList}</div>
-
-  <textarea
-    className={styles.textareafield}
-    name="description"
-    placeholder="tell uabout it . . ."
-  />
-</div>
-    </>
-  )
-}
-
 export default dynamic(() => Promise.resolve(Order), { ssr: false });
 const Order = () => {
 
@@ -236,18 +19,31 @@ const Order = () => {
   const [imgreffieldinputList, setImgRefFieldInputList] = useState([]);
   const [imgrefno, setImgRefNo] = useState(1);
 
-  const onAddImgReftBtnClick = () => {
-    if(imgrefno <= 4){
-    setImgRefNo(imgrefno+1)
-    setImgRefFieldInputList(
-      imgreffieldinputList.concat(
-        <RefImgInput
-          key={imgreffieldinputList.length}
-          no={imgrefno+1}
-        />
-      )
+  const RefImgInput = (props) => {
+    return (
+      <input
+        type="text"
+        placeholder={"enter your image reference url"}
+        className={styles.inputfield}
+        style={{ margin: "5px 0" }}
+        name={"imagereference" + props.no}
+        onChange={handleChange}
+      />
     );
-      }
+  };
+
+  const onAddImgReftBtnClick = (e) => {
+    if (imgrefno <= 4) {
+      setImgRefNo(imgrefno + 1)
+      setImgRefFieldInputList(
+        imgreffieldinputList.concat(
+          <RefImgInput
+            key={imgreffieldinputList.length}
+            no={imgrefno + 1}
+          />
+        )
+      );
+    }
   };
 
 
@@ -320,21 +116,6 @@ const Order = () => {
     })
   })
 
-
-  // function for new order field
-  const [addorderinputList, setAddOrderInputList] = useState([]);
-
-  const onAddNewOrderBtnClick = () => {
-    setAddOrderInputList(
-      addorderinputList.concat(
-        <AddOrderField
-          key={addorderinputList.length}
-        />
-      )
-    );
-  };
-
-
   const [inputs, setInputs] = useState({});
   const handleChange = (e) => {
     const name = e.target.name;
@@ -348,73 +129,6 @@ const Order = () => {
     e.preventDefault();
     setInputs({})
   };
-
-  // const web = [
-  //   "select a type",
-  //   "e-commerce",
-  //   "business",
-  //   "portfolio",
-  //   "blog",
-  //   "event",
-  //   "personal",
-  //   "informational",
-  // ];
-  // const graphics = [
-  //   "select a type",
-  //   "visual",
-  //   "advertisement",
-  //   "publication",
-  //   "motion",
-  //   "environmental",
-  //   "illustration",
-  //   "informational",
-  //   "layout",
-  //   "packing",
-  //   "branding",
-  // ];
-  // const banner = ["select a language", "bengali", "english"];
-  // const typography = ["select a language", "bengali", "english"];
-
-  // const [price, setPrice] = useState(0);
-
-  // useEffect(() => {
-  //   if (inputs.category == "graphics") {
-  //     switch (inputs.tag) {
-  //       case "visual":
-  //         setPrice(299);
-  //         break;
-  //       case "advertisement":
-  //         setPrice(399);
-  //         break;
-  //       case "publication":
-  //         setPrice(499);
-  //         break;
-  //       case "motion":
-  //         setPrice(599);
-  //         break;
-  //       case "environmental":
-  //         setPrice(699);
-  //         break;
-  //       default:
-  //         setPrice(0);
-  //         break;
-  //     }
-  //   }
-  // }, [inputs.tag]);
-
-  const RefImgInput = (props) => {
-    return (
-      <input
-        type="url"
-        name={"imagereference"+props.no}
-        placeholder={"enter your image reference url"}
-        className={styles.inputfield}
-        style={{margin: "5px 0"}}
-        onChange={handleChange}
-      />
-    );
-  };
-
 
   return (
     <>
@@ -499,7 +213,7 @@ const Order = () => {
             </select>
 
             {/* graphic option */}
-            <div id="graphic-selection-div" className={styles.selectiondiv} style={{display: "none"}}>
+            <div id="graphic-selection-div" className={styles.selectiondiv} style={{ display: "none" }}>
               <select name="tag" className={styles.inputfield} id="graphic">
                 <option>select the graphic type</option>
                 <option>visual identity</option>
@@ -519,21 +233,21 @@ const Order = () => {
                 <option value="9:16potrate">9:16 (potrate size)</option>
                 <option value="16:9landscape">16:9 (landscape size)</option>
               </select>
-             <div className={styles.fielddiv} id="graphic">
-             <input
-                type="number"
-                name="width"
-                placeholder="enter graphic/poster/banner width"
-                className={styles.inputfield}
-              />
-              <input
-                type="number"
-                name="height"
-                placeholder="enter graphic/poster/banner height"
-                className={styles.inputfield}
-              />
-             </div>
-             <select name="graphiclanguage" className={styles.inputfield} id="graphic">
+              <div className={styles.fielddiv} id="graphic">
+                <input
+                  type="number"
+                  name="width"
+                  placeholder="enter graphic/poster/banner width"
+                  className={styles.inputfield}
+                />
+                <input
+                  type="number"
+                  name="height"
+                  placeholder="enter graphic/poster/banner height"
+                  className={styles.inputfield}
+                />
+              </div>
+              <select name="graphiclanguage" className={styles.inputfield} id="graphic">
                 <option value="">select the graphic language</option>
                 <option value="english">english</option>
                 <option value="bengali">bengali</option>
@@ -549,7 +263,7 @@ const Order = () => {
             </div>
 
             {/* website option */}
-            <div id="website-selection-div" className={styles.selectiondiv} style={{display: "none"}}>
+            <div id="website-selection-div" className={styles.selectiondiv} style={{ display: "none" }}>
               <select name="tag" className={styles.inputfield} id="website" onChange={handleChange}>
                 <option>select the website type</option>
                 <option>e-commerce site</option>
@@ -574,25 +288,25 @@ const Order = () => {
               />
             </div>
 
-             {/* branding option */}
-             <div id="branding-selection-div" className={styles.selectiondiv} style={{display: "none"}}>
-             <select name="brandinglanguage" className={styles.inputfield} id="branding" onChange={handleChange}>
+            {/* branding option */}
+            <div id="branding-selection-div" className={styles.selectiondiv} style={{ display: "none" }}>
+              <select name="brandinglanguage" className={styles.inputfield} id="branding" onChange={handleChange}>
                 <option value="">select the branding language</option>
                 <option value="english">english</option>
                 <option value="bengali">bengali</option>
                 <option value="other">other language</option>
               </select>
               <div className={styles.fielddiv}>
-              <select name="brandinglogo" className={styles.inputfield} id="branding" onChange={handleChange}>
-                <option value="">select logo include or not</option>
-                <option value="yes">yes</option>
-                <option value="no">no</option>
-              </select>
-              <select name="brandingpackeging" className={styles.inputfield} id="branding" onChange={handleChange}>
-                <option value="">select full packeging include or not</option>
-                <option value="yes">yes</option>
-                <option value="no">no</option>
-              </select>
+                <select name="brandinglogo" className={styles.inputfield} id="branding" onChange={handleChange}>
+                  <option value="">select logo include or not</option>
+                  <option value="yes">yes</option>
+                  <option value="no">no</option>
+                </select>
+                <select name="brandingpackeging" className={styles.inputfield} id="branding" onChange={handleChange}>
+                  <option value="">select full packeging include or not</option>
+                  <option value="yes">yes</option>
+                  <option value="no">no</option>
+                </select>
               </div>
               <input
                 type="text"
@@ -605,8 +319,8 @@ const Order = () => {
             </div>
 
             {/* logo design option */}
-            <div id="logodesign-selection-div" className={styles.selectiondiv} style={{display: "none"}}>
-             <select name="logolanguage" className={styles.inputfield} id="logodesign" onChange={handleChange}>
+            <div id="logodesign-selection-div" className={styles.selectiondiv} style={{ display: "none" }}>
+              <select name="logolanguage" className={styles.inputfield} id="logodesign" onChange={handleChange}>
                 <option value="">select the logo language</option>
                 <option value="english">english</option>
                 <option value="bengali">bengali</option>
@@ -623,30 +337,30 @@ const Order = () => {
             </div>
 
             {/* typography option */}
-            <div id="typography-selection-div" className={styles.selectiondiv} style={{display: "none"}}>
+            <div id="typography-selection-div" className={styles.selectiondiv} style={{ display: "none" }}>
               <select name="typographyratio" className={styles.inputfield} id="typography" onChange={handleChange}>
                 <option value="">select the graphic size ratio</option>
                 <option value="1:1suqare">1:1 (square size)</option>
                 <option value="9:16potrate">9:16 (potrate size)</option>
                 <option value="16:9landscape">16:9 (landscape size)</option>
               </select>
-             <div className={styles.fielddiv} id="typography">
-             <input
-                type="number"
-                name="width"
-                placeholder="enter graphic/poster/banner width"
-                className={styles.inputfield}
-                onChange={handleChange}
-              />
-              <input
-                type="number"
-                name="height"
-                placeholder="enter graphic/poster/banner height"
-                className={styles.inputfield}
-                onChange={handleChange}
-              />
-             </div>
-             <select name="typographylanguage" className={styles.inputfield} id="typography" onChange={handleChange}>
+              <div className={styles.fielddiv} id="typography">
+                <input
+                  type="number"
+                  name="width"
+                  placeholder="enter graphic/poster/banner width"
+                  className={styles.inputfield}
+                  onChange={handleChange}
+                />
+                <input
+                  type="number"
+                  name="height"
+                  placeholder="enter graphic/poster/banner height"
+                  className={styles.inputfield}
+                  onChange={handleChange}
+                />
+              </div>
+              <select name="typographylanguage" className={styles.inputfield} id="typography" onChange={handleChange}>
                 <option value="">select the graphic language</option>
                 <option value="english">english</option>
                 <option value="bengali">bengali</option>
@@ -663,7 +377,7 @@ const Order = () => {
             </div>
 
             {/* other option */}
-            <div id="other-selection-div" className={styles.selectiondiv} style={{display: "none"}}>
+            <div id="other-selection-div" className={styles.selectiondiv} style={{ display: "none" }}>
               <input
                 type="text"
                 name="projectref"
@@ -699,17 +413,11 @@ const Order = () => {
             />
           </div>
 
-          {AddOrderField}
-
           <div className={styles.btnsection}>
             <button className={styles.submitbtn} type="submit">order now</button>
             <button className={styles.resetbtn} type="reset">reset</button>
           </div>
 
-          <div className={styles.addmorebtnsection}>
-            <p className={styles.text}>to add another order</p>
-            <button onClick={() => onAddNewOrderBtnClick()} className={styles.addmorebtn}>add order</button>
-          </div>
         </form>
 
         <div className={styles.pricesection}>
