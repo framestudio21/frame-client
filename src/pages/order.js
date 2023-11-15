@@ -10,17 +10,6 @@ import Footer from "../components/footer";
 import styles from "../styles/order.module.css";
 import Link from "next/link";
 
-const RefImgInput = (props) => {
-  return (
-    <input
-      type="url"
-      name="imagereference"
-      placeholder={"enter your image reference url" + props.placeholder}
-      className={styles.inputfield}
-      style={{margin: "5px 0"}}
-    />
-  );
-};
 
 const AddOrderField = () => {
   return (
@@ -243,21 +232,24 @@ export default dynamic(() => Promise.resolve(Order), { ssr: false });
 const Order = () => {
 
 
-  // function fot new form image reference input field adding
+  // function for new form image reference input field adding
   const [imgreffieldinputList, setImgRefFieldInputList] = useState([]);
   const [imgrefno, setImgRefNo] = useState(1);
 
   const onAddImgReftBtnClick = () => {
-    setImgRefNo(imgrefno + 1);
+    if(imgrefno <= 4){
+    setImgRefNo(imgrefno+1)
     setImgRefFieldInputList(
       imgreffieldinputList.concat(
         <RefImgInput
           key={imgreffieldinputList.length}
-          placeholder={` ${imgrefno}`}
+          no={imgrefno+1}
         />
       )
     );
+      }
   };
+
 
   // category to tag selection and field display div
   useEffect(() => {
@@ -350,64 +342,79 @@ const Order = () => {
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
+  console.log(inputs);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    setInputs({})
   };
 
-  const web = [
-    "select a type",
-    "e-commerce",
-    "business",
-    "portfolio",
-    "blog",
-    "event",
-    "personal",
-    "informational",
-  ];
-  const graphics = [
-    "select a type",
-    "visual",
-    "advertisement",
-    "publication",
-    "motion",
-    "environmental",
-    "illustration",
-    "informational",
-    "layout",
-    "packing",
-    "branding",
-  ];
-  const banner = ["select a language", "bengali", "english"];
-  const typography = ["select a language", "bengali", "english"];
+  // const web = [
+  //   "select a type",
+  //   "e-commerce",
+  //   "business",
+  //   "portfolio",
+  //   "blog",
+  //   "event",
+  //   "personal",
+  //   "informational",
+  // ];
+  // const graphics = [
+  //   "select a type",
+  //   "visual",
+  //   "advertisement",
+  //   "publication",
+  //   "motion",
+  //   "environmental",
+  //   "illustration",
+  //   "informational",
+  //   "layout",
+  //   "packing",
+  //   "branding",
+  // ];
+  // const banner = ["select a language", "bengali", "english"];
+  // const typography = ["select a language", "bengali", "english"];
 
-  const [price, setPrice] = useState(0);
+  // const [price, setPrice] = useState(0);
 
-  useEffect(() => {
-    if (inputs.category == "graphics") {
-      switch (inputs.tag) {
-        case "visual":
-          setPrice(299);
-          break;
-        case "advertisement":
-          setPrice(399);
-          break;
-        case "publication":
-          setPrice(499);
-          break;
-        case "motion":
-          setPrice(599);
-          break;
-        case "environmental":
-          setPrice(699);
-          break;
-        default:
-          setPrice(0);
-          break;
-      }
-    }
-  }, [inputs.tag]);
+  // useEffect(() => {
+  //   if (inputs.category == "graphics") {
+  //     switch (inputs.tag) {
+  //       case "visual":
+  //         setPrice(299);
+  //         break;
+  //       case "advertisement":
+  //         setPrice(399);
+  //         break;
+  //       case "publication":
+  //         setPrice(499);
+  //         break;
+  //       case "motion":
+  //         setPrice(599);
+  //         break;
+  //       case "environmental":
+  //         setPrice(699);
+  //         break;
+  //       default:
+  //         setPrice(0);
+  //         break;
+  //     }
+  //   }
+  // }, [inputs.tag]);
 
-  console.log(inputs);
+  const RefImgInput = (props) => {
+    return (
+      <input
+        type="url"
+        name={"imagereference"+props.no}
+        placeholder={"enter your image reference url"}
+        className={styles.inputfield}
+        style={{margin: "5px 0"}}
+        onChange={handleChange}
+      />
+    );
+  };
+
 
   return (
     <>
@@ -426,12 +433,14 @@ const Order = () => {
                 type="text"
                 name="firstname"
                 placeholder="enter your name"
+                onChange={handleChange}
                 className={styles.inputfield}
               />
               <input
                 type="text"
                 name="lastname"
                 placeholder="enter your surname"
+                onChange={handleChange}
                 className={styles.inputfield}
               />
             </div>
@@ -441,12 +450,14 @@ const Order = () => {
                 type="text"
                 name="companyname"
                 placeholder="enter your company name"
+                onChange={handleChange}
                 className={styles.inputfield}
               />
               <input
                 type="number"
                 name="phone"
                 placeholder="enter your phone no"
+                onChange={handleChange}
                 className={styles.inputfield}
               />
             </div>
@@ -455,12 +466,14 @@ const Order = () => {
               type="email"
               name="email"
               placeholder="enter your email"
+              onChange={handleChange}
               className={styles.inputfield}
             />
             <input
               type="text"
               name="address"
               placeholder="enter your address"
+              onChange={handleChange}
               className={styles.inputfield}
             />
           </div>
@@ -472,6 +485,7 @@ const Order = () => {
               type="text"
               name="designname"
               placeholder="enter your design name"
+              onChange={handleChange}
               className={styles.inputfield}
             />
             <select name="category" id="category-select" className={styles.inputfield}>
@@ -536,7 +550,7 @@ const Order = () => {
 
             {/* website option */}
             <div id="website-selection-div" className={styles.selectiondiv} style={{display: "none"}}>
-              <select name="tag" className={styles.inputfield} id="website">
+              <select name="tag" className={styles.inputfield} id="website" onChange={handleChange}>
                 <option>select the website type</option>
                 <option>e-commerce site</option>
                 <option>business site</option>
@@ -556,24 +570,25 @@ const Order = () => {
                 placeholder="enter our project reference (if any)"
                 className={styles.inputfield}
                 id="website"
+                onChange={handleChange}
               />
             </div>
 
              {/* branding option */}
              <div id="branding-selection-div" className={styles.selectiondiv} style={{display: "none"}}>
-             <select name="brandinglanguage" className={styles.inputfield} id="branding">
+             <select name="brandinglanguage" className={styles.inputfield} id="branding" onChange={handleChange}>
                 <option value="">select the branding language</option>
                 <option value="english">english</option>
                 <option value="bengali">bengali</option>
                 <option value="other">other language</option>
               </select>
               <div className={styles.fielddiv}>
-              <select name="brandinglogo" className={styles.inputfield} id="branding">
+              <select name="brandinglogo" className={styles.inputfield} id="branding" onChange={handleChange}>
                 <option value="">select logo include or not</option>
                 <option value="yes">yes</option>
                 <option value="no">no</option>
               </select>
-              <select name="brandingpackeging" className={styles.inputfield} id="branding">
+              <select name="brandingpackeging" className={styles.inputfield} id="branding" onChange={handleChange}>
                 <option value="">select full packeging include or not</option>
                 <option value="yes">yes</option>
                 <option value="no">no</option>
@@ -585,12 +600,13 @@ const Order = () => {
                 placeholder="enter our project reference (if any)"
                 className={styles.inputfield}
                 id="branding"
+                onChange={handleChange}
               />
             </div>
 
             {/* logo design option */}
             <div id="logodesign-selection-div" className={styles.selectiondiv} style={{display: "none"}}>
-             <select name="logolanguage" className={styles.inputfield} id="logodesign">
+             <select name="logolanguage" className={styles.inputfield} id="logodesign" onChange={handleChange}>
                 <option value="">select the logo language</option>
                 <option value="english">english</option>
                 <option value="bengali">bengali</option>
@@ -602,12 +618,13 @@ const Order = () => {
                 placeholder="enter our project reference (if any)"
                 className={styles.inputfield}
                 id="logodesign"
+                onChange={handleChange}
               />
             </div>
 
             {/* typography option */}
             <div id="typography-selection-div" className={styles.selectiondiv} style={{display: "none"}}>
-              <select name="typographyratio" className={styles.inputfield} id="typography">
+              <select name="typographyratio" className={styles.inputfield} id="typography" onChange={handleChange}>
                 <option value="">select the graphic size ratio</option>
                 <option value="1:1suqare">1:1 (square size)</option>
                 <option value="9:16potrate">9:16 (potrate size)</option>
@@ -619,15 +636,17 @@ const Order = () => {
                 name="width"
                 placeholder="enter graphic/poster/banner width"
                 className={styles.inputfield}
+                onChange={handleChange}
               />
               <input
                 type="number"
                 name="height"
                 placeholder="enter graphic/poster/banner height"
                 className={styles.inputfield}
+                onChange={handleChange}
               />
              </div>
-             <select name="typographylanguage" className={styles.inputfield} id="typography">
+             <select name="typographylanguage" className={styles.inputfield} id="typography" onChange={handleChange}>
                 <option value="">select the graphic language</option>
                 <option value="english">english</option>
                 <option value="bengali">bengali</option>
@@ -639,6 +658,7 @@ const Order = () => {
                 placeholder="enter our project reference (if any)"
                 className={styles.inputfield}
                 id="typography"
+                onChange={handleChange}
               />
             </div>
 
@@ -659,6 +679,7 @@ const Order = () => {
                 name="imagereference"
                 placeholder="enter your image reference url"
                 className={styles.inputfield}
+                onChange={handleChange}
               />
               <button
                 onClick={() => onAddImgReftBtnClick()}
@@ -673,7 +694,8 @@ const Order = () => {
             <textarea
               className={styles.textareafield}
               name="description"
-              placeholder="tell uabout it . . ."
+              placeholder="tell about it . . ."
+              onChange={handleChange}
             />
           </div>
 
@@ -695,6 +717,7 @@ const Order = () => {
             <span className={styles.text}>order summery</span>
             <p className={styles.total}>
               total due :<span className={styles.amount}> ₹ 4000.00/-</span>
+              {/* <span>{inputs.price}</span> */}
             </p>
           </div>
           <div className={styles.bottomsection}>
@@ -714,149 +737,3 @@ const Order = () => {
     </>
   );
 };
-
-{
-  /* <form className={styles.form} onSubmit={handleSubmit}>
-    <h1 className={styles.heading}>Order box</h1>
-    <div className={styles.customerDetails}>
-      <h3 className={styles.secondaryHeading}>Billing Information</h3>
-      <input
-        type="text"
-        name="name"
-        value={"" || inputs.name}
-        className={styles.input}
-        onChange={handleChange}
-        placeholder="Full Name"
-      />
-      <input
-        type="email"
-        name="email"
-        value={"" || inputs.email}
-        className={styles.input}
-        onChange={handleChange}
-        placeholder="Email"
-      />
-      <input
-        type="number"
-        name="number"
-        value={"" || inputs.number}
-        className={styles.input}
-        onChange={handleChange}
-        placeholder="Phone Number"
-      />
-      <input
-        type="text"
-        name="company"
-        value={"" || inputs.company}
-        className={styles.input}
-        onChange={handleChange}
-        placeholder="Company Name"
-      />
-      <input
-        type="text"
-        name="address"
-        value={"" || inputs.address}
-        className={styles.input}
-        onChange={handleChange}
-        placeholder="Company Address"
-      />
-    </div>
-
-    <div className={styles.orderDetails}>
-      <h3 className={styles.secondaryHeading}>order details</h3>
-      <input
-        type="text"
-        name="design"
-        value={"" || inputs.design}
-        className={styles.input}
-        onChange={handleChange}
-        placeholder="Design Name"
-      />
-      <input
-        type="text"
-        name="url"
-        value={"" || inputs.url}
-        className={styles.input}
-        onChange={handleChange}
-        placeholder="Referance URL"
-      />
-      <textarea
-        type="text"
-        name="details"
-        value={"" || inputs.details}
-        className={styles.input}
-        onChange={handleChange}
-        placeholder="Design Details"
-      ></textarea>
-      <select
-        className={`${styles.input} ${styles.select}`}
-        name="category"
-        value={"" || inputs.category}
-        onChange={handleChange}
-      >
-        <option className={styles.option} value="">
-          select design category
-        </option>
-        <option className={styles.option} value="graphics">
-          graphics
-        </option>
-        <option className={styles.option} value="website">
-          website
-        </option>
-        <option className={styles.option} value="banner">
-          banner
-        </option>
-        <option className={styles.option} value="logo design">
-          logo design
-        </option>
-        <option className={styles.option} value="typography">
-          typography
-        </option>
-      </select>
-      <select
-        className={`${styles.input} ${styles.select}`}
-        name="tag"
-        onChange={handleChange}
-        disabled={!inputs.category}
-      >
-        {inputs.category == "website" &&
-          web.map((item) => (
-            <option key={item} value={item}>
-              {item}
-            </option>
-          ))}
-        {inputs.category == "graphics" &&
-          graphics.map((item) => (
-            <option key={item} value={item}>
-              {item}
-            </option>
-          ))}
-
-        {inputs.category == "banner" &&
-          banner.map((item) => (
-            <option key={item} value={item}>
-              {item}
-            </option>
-          ))}
-
-        {inputs.category == "logo design" &&
-          web.map((item) => (
-            <option key={item} value={item}>
-              {item}
-            </option>
-          ))}
-      </select>
-
-      <div className={styles.pricing}>Price: {price}/- only</div>
-      <div className={styles.coupon}>
-        <input
-          type="text"
-          className={styles.input}
-          placeholder="Coupon Code"
-        />
-        <button>apply</button>
-      </div>
-      <button type="submit">Order Now</button>
-    </div>
-</form> */
-}

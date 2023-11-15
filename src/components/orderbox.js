@@ -6,7 +6,7 @@ import styles from "./styles/orderbox.module.css";
 export default function Orderbox() {
     const router = useRouter();
     const handelInput = () => {
-      router.push("/contact");
+      router.push("/order");
     };
   return (
     <>
