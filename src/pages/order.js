@@ -202,7 +202,7 @@ const Order = () => {
               onChange={handleChange}
               className={styles.inputfield}
             />
-            <select name="category" id="category-select" className={styles.inputfield}>
+            <select name="category" id="category-select" className={styles.inputfield} required>
               <option value="">select the category</option>
               <option value="graphic">Graphic Design</option>
               <option value="website">Website Design</option>
@@ -422,11 +422,17 @@ const Order = () => {
 
         <div className={styles.pricesection}>
           <div className={styles.topsection}>
+          <div className={styles.orderiddiv}>
+            <span className={styles.text}>order number</span>
+              <span className={styles.idnodiv}>frame/2023/gd/0042</span>
+            </div>
+            <div className={styles.ordersummarydiv}>
             <span className={styles.text}>order summery</span>
             <p className={styles.total}>
-              total due :<span className={styles.amount}> ₹ 4000.00/-</span>
+              total due : ₹ 4000.00/-
               {/* <span>{inputs.price}</span> */}
             </p>
+            </div>
           </div>
           <div className={styles.bottomsection}>
             <GoShieldCheck className={styles.icon} />

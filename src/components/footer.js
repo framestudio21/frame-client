@@ -74,9 +74,6 @@ window.addEventListener('scroll', toggleVisible)
                 <BsTwitter className={styles.icon} />
               </Link>
               <Link href="#" className={styles.icons}>
-                <BiLogoGmail className={styles.icon} />
-              </Link>
-              <Link href="#" className={styles.icons}>
                 <BiLogoBehance className={styles.icon} />
               </Link>
               <Link href="#" className={styles.icons}>
@@ -84,12 +81,6 @@ window.addEventListener('scroll', toggleVisible)
               </Link>
               <Link href="#" className={styles.icons}>
                 <BsDribbble className={styles.icon} />
-              </Link>
-              <Link href="https://framestudio.in/" className={styles.icons}>
-                <BsGlobe className={styles.icon} />
-              </Link>
-              <Link href="#" className={styles.icons}>
-                <BsYoutube className={styles.icon} />
               </Link>
             </div>
           </div>
@@ -121,9 +112,6 @@ window.addEventListener('scroll', toggleVisible)
                 <Link href="#">
                   <div className={styles.menu}>graphic design</div>
                 </Link>
-                {/* <Link href="#">
-                  <div className={styles.menu}>website design</div>
-                </Link> */}
                 <Link href="#">
                   <div className={styles.menu}>ai art</div>
                 </Link>
@@ -141,15 +129,6 @@ window.addEventListener('scroll', toggleVisible)
                 <Link href="#">
                   <div className={styles.information}>about us</div>
                 </Link>
-                <Link href="#">
-                  <div className={styles.information}>blog</div>
-                </Link>
-                {/* <Link href="#">
-                  <div className={styles.information}>services</div>
-                </Link> */}
-                {/* <Link href="#">
-                  <div className={styles.information}>pricing</div>
-                </Link> */}
                 <Link href="#">
                   <div className={styles.information}>contact</div>
                 </Link>
