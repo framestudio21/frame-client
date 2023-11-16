@@ -16,7 +16,6 @@ import Feedback from './feedback';
 
 
 import Errorpage from './_error';
-import Admin from './admin';
 
 
 export default dynamic(() => Promise.resolve(App), { ssr: false });
@@ -32,13 +31,7 @@ const App = () => {
         <Route path="/digitalart" element={<Digitalart />} />
         <Route path="/aiart" element={<Aiart />} />
         <Route path="/photography" element={<Photography />} />
-
-        
-        <Route path='/feedback' element={<Feedback/>}/>
-
-
-        <Route path="/admin" element={<Admin />} />
-
+        <Route path="/feedback" element={<Feedback/>}/>
 
         <Route path="*" element={<Errorpage />} />
         <Route path="/404" element={<Errorpage />} />

@@ -51,81 +51,6 @@ function Id() {
   }, [id, path, router.isReady]);
 
 
-  
-  // handle popup
-  // const [showModal, setShowModal] = useState(false)
-  // useEffect(() => {
-  //   setShowModal(true)
-  // }, [])
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setShowModal(true);
-  //   }, 20000); // Change this to the number of milliseconds you want to wait
-  // }, []);
-
-
-  // var settings = {
-  //   dots: false,
-  //   infinite: true,
-  //   slidesToShow: 4,
-  //   slidesToScroll: 1,
-  //   autoplay: true,
-  //   autoplaySpeed: 2500,
-  //   speed: 500,
-  //   pauseOnHover: true,
-  //   focusOnSelect: true,
-  //   initialSlide: 0,
-  //   arrows: false,
-  //   responsive: [
-  //     {
-  //       breakpoint: 1240,
-  //       settings: {
-  //         slidesToShow: 4,
-  //         slidesToScroll: 1,
-  //         infinite: true,
-  //         arrows: false,
-  //       },
-  //     },
-  //     {
-  //       breakpoint: 1120,
-  //       settings: {
-  //         slidesToShow: 3,
-  //         slidesToScroll: 1,
-  //         infinite: true,
-  //         arrows: false,
-  //       },
-  //     },
-  //     {
-  //       breakpoint: 1024,
-  //       settings: {
-  //         slidesToShow: 2,
-  //         slidesToScroll: 1,
-  //         infinite: true,
-  //         arrows: false,
-  //       },
-  //     },
-  //     {
-  //       breakpoint: 800,
-  //       settings: {
-  //         slidesToShow: 2,
-  //         slidesToScroll: 1,
-  //         initialSlide: 2,
-  //         infinite: true,
-  //         arrows: false,
-  //       },
-  //     },
-  //     {
-  //       breakpoint: 500,
-  //       settings: {
-  //         slidesToShow: 1,
-  //         slidesToScroll: 1,
-  //         infinite: true,
-  //         arrows: false,
-  //       },
-  //     },
-  //   ],
-  // };
-
   return (
     <>
       <Head>
@@ -374,7 +299,7 @@ function Id() {
                   <Orderbox/>
       <CardCarousel/>
           {/* {showModal && <Commentbox/>} */}
-          <Commentbox/>
+          {/* <Commentbox/> */}
       <Footer/>
 
     </>

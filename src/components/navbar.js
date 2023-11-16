@@ -33,14 +33,14 @@ const Navbar = () => {
             >
               <AiOutlineMenu className={styles.sidenavbtnicon} />
             </button>
-            <Link href="/about">
+            <Link href="/">
               <Image
                 src={spaceframelogowhite}
                 className={styles.mainlogo}
                 alt="Logo"
                 width={0}
                 height={0}
-                optimized
+                optimized='true'
                 id="mainlogo"
               />
             </Link>
