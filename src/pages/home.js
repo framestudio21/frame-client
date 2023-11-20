@@ -23,7 +23,7 @@ const Home = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setImgs(data))
-      .catch(() => router.push("/404"));
+      // .catch(() => router.push("/404"));
   }, []);
 
   return (

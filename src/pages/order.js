@@ -33,8 +33,8 @@ const Order = () => {
   };
 
   const onAddImgReftBtnClick = (e) => {
+    setInputs({...inputs})
     if (imgrefno <= 4) {
-      setInputs(...inputs)
       setImgRefNo(imgrefno + 1)
       setImgRefFieldInputList(
         imgreffieldinputList.concat(

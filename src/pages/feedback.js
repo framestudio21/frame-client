@@ -51,7 +51,7 @@ else{
     setFormData({});}
     setTimeout(()=>setPop(),3000)
   };
-
+    
   return (
     <>
       <Navbar />
@@ -72,7 +72,7 @@ else{
             <div className={styles.form}>
               <form method="POST">
                 <div className={styles.inputfield}>
-                  <label for="name" className={styles.formlabel}>
+                  <label htmlFor="name" className={styles.formlabel}>
                     Name
                   </label>
                   <input
@@ -86,7 +86,7 @@ else{
                   />
                 </div>
                 <div className={styles.inputfield}>
-                  <label for="email" className={styles.formlabel}>
+                  <label htmlFor="email" className={styles.formlabel}>
                     Email
                   </label>
                   <input
@@ -100,7 +100,7 @@ else{
                   />
                 </div>
                 <div className={styles.inputfield}>
-                  <label for="text" className={styles.formlabel}>
+                  <label htmlFor="text" className={styles.formlabel}>
                     Massage
                   </label>
                   <input
