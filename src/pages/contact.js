@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { useState } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 
@@ -17,6 +18,28 @@ import { FaLocationArrow, FaPinterestP } from "react-icons/fa";
 
 export default dynamic(() => Promise.resolve(Contactus), { ssr: false });
 const Contactus = () => {
+
+  const [inputs, setInputs] = useState({})
+  const handleInputs = (e) =>{
+    setInputs({...inputs, [e.target.name]:e.target.value})
+  }
+  
+  const handleSubmit = (e) =>{
+    e.preventDefault()
+    fetch(process.env.NEXT_PUBLIC_API_URL + "/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({...inputs}),
+    });
+    setInputs({})
+  }
+
+  const reset = () =>{
+    setInputs({})
+  }
+
   return (
     <>
       <Navbar />
@@ -75,77 +98,77 @@ const Contactus = () => {
         </div>
 
         <div className={styles.rightside}>
-          <form className={styles.formdiv}>
+          <form className={styles.formdiv} method="post" onSubmit={handleSubmit}>
             <div className={styles.blocks}>
               <div className={styles.inputfield}>
                 {/* <label>first name</label> */}
-                <input type="text" className={styles.textinput} name="firstname" placeholder="your first name"/>
+                <input type="text" onChange={handleInputs} value={inputs.firstname || ""} className={styles.textinput} name="firstname" placeholder="your first name"/>
               </div>
               <div className={styles.inputfield}>
                 {/* <label>Last name</label> */}
-                <input type="text" className={styles.textinput} name="lastname" placeholder="your last name"/>
+                <input type="text" onChange={handleInputs} value={inputs.lastname || ""} className={styles.textinput} name="lastname" placeholder="your last name"/>
               </div>
             </div>
             <div className={styles.blocks}>
               <div className={styles.inputfield}>
                 {/* <label>city</label> */}
-                <input type="text" className={styles.textinput} name="city" placeholder="your city"/>
+                <input type="text"onChange={handleInputs} value={inputs.city || ""} className={styles.textinput} name="city" placeholder="your city"/>
               </div>
               <div className={styles.inputfield}>
                 {/* <label>Phone</label> */}
-                <input type="number" className={styles.textinput} name="phone" placeholder="your phone"/>
+                <input type="number" onChange={handleInputs} value={inputs.phone || ""} className={styles.textinput} name="phone" placeholder="your phone"/>
               </div>
             </div>
             <div className={styles.blocks}>
               <div className={styles.inputfield}>
                 {/* <label>email</label> */}
-                <input type="email" className={styles.textinput} name="email" placeholder="your email"/>
+                <input type="email" onChange={handleInputs} value={inputs.email || ""} className={styles.textinput} name="email" placeholder="your email"/>
               </div>
             </div>
             <div className={styles.blocks}>
               <div className={styles.inputfield}>
                 {/* <label>subject</label> */}
-                <input type="text" className={styles.textinput} name="subject" placeholder="subject"/>
+                <input type="text" onChange={handleInputs} value={inputs.subject || ""} className={styles.textinput} name="subject" placeholder="subject"/>
               </div>
             </div>
             <div className={styles.radioblocks}>
                 <div className={styles.radiolabel}>what the matter for your query ?</div>
               <div className={styles.inputfield}>
                 <div className={styles.radiodiv}>
-                <input type="radio" id="graphic-design" value="graphicdesign" name="category"/>
-                <label className={styles.radioinputlabel} for="graphicdesign">Graphic Design</label>
+                <input type="radio" onChange={handleInputs} value={inputs.category || ""} id="graphic-design" value="graphicdesign" name="category"/>
+                <label className={styles.radioinputlabel} htmlFor="graphicdesign">Graphic Design</label>
                 </div>
                 <div className={styles.radiodiv}>
-                <input type="radio" id="website-design" value="websitedesign" name="category"/>
-                <label className={styles.radioinputlabel} for="websitedesign">Website Design</label>
+                <input type="radio" onChange={handleInputs} value={inputs.category || ""} id="website-design" value="websitedesign" name="category"/>
+                <label className={styles.radioinputlabel} htmlFor="websitedesign">Website Design</label>
                 </div>
                 <div className={styles.radiodiv}>
-                <input type="radio" id="logo-design" value="logodesign" name="category"/>
-                <label className={styles.radioinputlabel} for="logodesign">Logo Design</label>
+                <input type="radio" onChange={handleInputs} value={inputs.category || ""} id="logo-design" value="logodesign" name="category"/>
+                <label className={styles.radioinputlabel} htmlFor="logodesign">Logo Design</label>
                 </div>
                 <div className={styles.radiodiv}>
-                <input type="radio" id="typography-design" value="typographydesign" name="category"/>
-                <label className={styles.radioinputlabel} for="typographydesign">typography</label>
+                <input type="radio" onChange={handleInputs} value={inputs.category || ""} id="typography-design" value="typographydesign" name="category"/>
+                <label className={styles.radioinputlabel} htmlFor="typographydesign">typography</label>
                 </div>
                 <div className={styles.radiodiv}>
-                <input type="radio" id="branding-design" value="brandingdesign" name="category"/>
-                <label className={styles.radioinputlabel} for="brandingdesign">branding</label>
+                <input type="radio" onChange={handleInputs} value={inputs.category || ""} id="branding-design" value="brandingdesign" name="category"/>
+                <label className={styles.radioinputlabel} htmlFor="brandingdesign">branding</label>
                 </div>
                 <div className={styles.radiodiv}>
-                <input type="radio" id="other-design" value="otherdesign" name="category"/>
-                <label className={styles.radioinputlabel} for="otherdesign">other</label>
+                <input type="radio" onChange={handleInputs} value={inputs.category || ""} id="other-design" value="otherdesign" name="category"/>
+                <label className={styles.radioinputlabel} htmlFor="otherdesign">other</label>
                 </div>
               </div>
             </div>
             <div className={styles.blocks}>
               <div className={styles.inputfield}>
                 {/* <label>massage</label> */}
-                <textarea className={styles.textarea} type="text" name="massage" placeholder="tell us about it . . ."/>
+                <textarea className={styles.textarea} onChange={handleInputs} value={inputs.message || ""} type="text" name="message" placeholder="tell us about it . . ."/>
               </div>
             </div>
             <div className={styles.btnblocks}>
                 <button className={styles.sendbtn}>submit</button>
-                <button className={styles.resetbtn}>reset</button>
+                <button className={styles.resetbtn} onClick={reset}>reset</button>
             </div>
           </form>
           <div className={styles.followlinks}>

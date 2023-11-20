@@ -99,7 +99,7 @@ const Photography = () => {
               return (
                 <>
                   {item.thumbnail && (
-                    <div className={styles.imagebody}>
+                    <div className={styles.imagebody} key={item.thumbnail}>
                       <Image
                         key={item._id}
                         src={item.thumbnail}

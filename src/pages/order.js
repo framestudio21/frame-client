@@ -34,6 +34,7 @@ const Order = () => {
 
   const onAddImgReftBtnClick = (e) => {
     if (imgrefno <= 4) {
+      setInputs(...inputs)
       setImgRefNo(imgrefno + 1)
       setImgRefFieldInputList(
         imgreffieldinputList.concat(
@@ -202,7 +203,7 @@ const Order = () => {
               onChange={handleChange}
               className={styles.inputfield}
             />
-            <select name="category" id="category-select" className={styles.inputfield}>
+            <select name="category" onChange={handleChange} id="category-select" className={styles.inputfield}>
               <option value="">select the category</option>
               <option value="graphic">Graphic Design</option>
               <option value="website">Website Design</option>
@@ -214,7 +215,7 @@ const Order = () => {
 
             {/* graphic option */}
             <div id="graphic-selection-div" className={styles.selectiondiv} style={{ display: "none" }}>
-              <select name="tag" className={styles.inputfield} id="graphic">
+              <select name="tag" onChange={handleChange} className={styles.inputfield} id="graphic">
                 <option>select the graphic type</option>
                 <option>visual identity</option>
                 <option>advertisement</option>
@@ -227,7 +228,7 @@ const Order = () => {
                 <option>packing</option>
                 <option>other matter</option>
               </select>
-              <select name="graphicratio" className={styles.inputfield} id="graphic">
+              <select name="graphicratio" onChange={handleChange} className={styles.inputfield} id="graphic">
                 <option value="">select the graphic size ratio</option>
                 <option value="1:1suqare">1:1 (square size)</option>
                 <option value="9:16potrate">9:16 (potrate size)</option>
@@ -237,17 +238,19 @@ const Order = () => {
                 <input
                   type="number"
                   name="width"
+                  onChange={handleChange}
                   placeholder="enter graphic/poster/banner width"
                   className={styles.inputfield}
                 />
                 <input
                   type="number"
                   name="height"
+                  onChange={handleChange}
                   placeholder="enter graphic/poster/banner height"
                   className={styles.inputfield}
                 />
               </div>
-              <select name="graphiclanguage" className={styles.inputfield} id="graphic">
+              <select name="graphiclanguage" onChange={handleChange} className={styles.inputfield} id="graphic">
                 <option value="">select the graphic language</option>
                 <option value="english">english</option>
                 <option value="bengali">bengali</option>
@@ -256,6 +259,7 @@ const Order = () => {
               <input
                 type="text"
                 name="projectref"
+                onChange={handleChange}
                 placeholder="enter our project reference (if any)"
                 className={styles.inputfield}
                 id="graphic"
@@ -381,6 +385,7 @@ const Order = () => {
               <input
                 type="text"
                 name="projectref"
+                onChange={handleChange}
                 placeholder="enter our project reference (if any)"
                 className={styles.inputfield}
                 id="other"
@@ -424,7 +429,7 @@ const Order = () => {
           <div className={styles.topsection}>
             <span className={styles.text}>order summery</span>
             <p className={styles.total}>
-              total due :<span className={styles.amount}> ₹ 4000.00/-</span>
+              total due :<span className={styles.amount} name="price" onChange={handleChange}> ₹ 4000.00/-</span>
               {/* <span>{inputs.price}</span> */}
             </p>
           </div>
