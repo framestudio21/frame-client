@@ -23,6 +23,9 @@
             font-weight: 500;
             font-size: 12px;
         }
+        .rightside{
+            text-align: right;
+        }
         .centerside{
             width: calc(100% / 3);
             display: flex;
